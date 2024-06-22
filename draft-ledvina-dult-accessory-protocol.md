@@ -1,6 +1,5 @@
 ---
 title: "Detecting Unwanted Location Trackers Accessory Protocol"
-#abbrev: "TODO - Abbreviation"
 category: info
 
 docname: draft-ledvina-dult-accessory-protocol-latest
