@@ -1,6 +1,6 @@
 # TODO - Your title
 
-This is the working area for the individual Internet-Draft, "TODO - Your title".
+This is the working area for the DULT WG's Internet-Draft, "DULT Accessory Protocol".
 
 * [Editor's Copy](https://bledvina.github.io/draft-ledvina-dult-accessory-protocol/#go.draft-ledvina-dult-accessory-protocol.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-ledvina-dult-accessory-protocol)
