@@ -5,16 +5,16 @@
 Detecting Unwanted Location Trackers                          B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                                D. Lazarov
-Expires: 24 December 2024                                         Google
+Expires: 10 April 2025                                            Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                            22 June 2024
+                                                          7 October 2024
 
 
         Detecting Unwanted Location Trackers Accessory Protocol
-              draft-ledvina-dult-accessory-protocol-latest
+               draft-ietf-dult-accessory-protocol-latest
 
 Abstract
 
@@ -31,11 +31,10 @@ About This Document
 
    This note is to be removed before publishing as an RFC.
 
-   The latest revision of this draft can be found at
-   https://bledvina.github.io/draft-ledvina-dult-accessory-protocol/
-   draft-ledvina-dult-accessory-protocol.html.  Status information for
-   this document may be found at https://datatracker.ietf.org/doc/draft-
-   ledvina-dult-accessory-protocol/.
+   The latest revision of this draft can be found at https://ietf-wg-
+   dult.github.io/accessory-protocol/draft-ietf-dult-accessory-
+   protocol.html.  Status information for this document may be found at
+   https://datatracker.ietf.org/doc/draft-ietf-dult-accessory-protocol/.
 
    Discussion of this document takes place on the Detecting Unwanted
    Location Trackers Working Group mailing list (mailto:unwanted-
@@ -45,7 +44,7 @@ About This Document
    trackers/.
 
    Source for this draft and an issue tracker can be found at
-   https://github.com/bledvina/draft-ledvina-dult-accessory-protocol.
+   https://github.com/ietf-wg-dult/draft-ietf-dult-accessory-protocol.
 
 Status of This Memo
 
@@ -62,7 +61,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 December 2024.
+   This Internet-Draft will expire on 10 April 2025.
 
 Copyright Notice
 
