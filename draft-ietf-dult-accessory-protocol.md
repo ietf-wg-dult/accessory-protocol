@@ -2,7 +2,7 @@
 title: "Detecting Unwanted Location Trackers Accessory Protocol"
 category: info
 
-docname: draft-ledvina-dult-accessory-protocol-latest
+docname: draft-ietf-dult-accessory-protocol-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
@@ -11,16 +11,16 @@ v: 3
 area: "Security"
 workgroup: "Detecting Unwanted Location Trackers"
 keyword:
- - next generation
- - unicorn
- - sparkling distributed ledger
+ - Internet-Draft
+ - detecting unwanted location trackers
+ - accessory protocol
 venue:
   group: "Detecting Unwanted Location Trackers"
   type: "Working Group"
   mail: "unwanted-trackers@ietf.org"
   arch: "https://mailarchive.ietf.org/arch/browse/unwanted-trackers/"
-  github: "bledvina/draft-ledvina-dult-accessory-protocol"
-  latest: "https://bledvina.github.io/draft-ledvina-dult-accessory-protocol/draft-ledvina-dult-accessory-protocol.html"
+  github: "ietf-wg-dult/draft-ietf-dult-accessory-protocol"
+  latest: "https://ietf-wg-dult.github.io/accessory-protocol/draft-ietf-dult-accessory-protocol.html"
 
 author:
  -
