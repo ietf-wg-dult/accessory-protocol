@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-10-27T00:43:38.886870+00:00",
+  "timestamp": "2024-10-29T00:41:18.339716+00:00",
   "repo": "ietf-wg-dult/accessory-protocol",
   "labels": [
     {
@@ -207,6 +207,22 @@
       "body": "Review what kind of items the accessory protocol will be applicable to. Currently this section mentions \"discoverability\" and quantifies it with size requirements. \r\n\r\nhttps://github.com/ietf-wg-dult/accessory-protocol/blob/main/draft-ietf-dult-accessory-protocol.md#applicability",
       "createdAt": "2024-10-09T21:30:13Z",
       "updatedAt": "2024-10-09T21:31:47Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 11,
+      "id": "I_kwDOM86dss6b-20Y",
+      "title": "Add NFC requirements section",
+      "url": "https://github.com/ietf-wg-dult/accessory-protocol/issues/11",
+      "state": "OPEN",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This section of NFC requirements was recently added to the Apple + Google industry standard for unwanted tracking:  https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/blob/main/draft-ledvina-apple-google-unwanted-trackers.md#nfc-requirements-nfc-requirements\r\n\r\nA version similar to this should be added to the DULT WG Document #3 \r\n\r\n------\r\n\r\nNFC Requirements {#NFC-requirements}\r\n\r\nAccessories that optionally include NFC (see [Serial number identification](https://github.com/ietf-wg-dult/accessory-protocol/issues/new#serial-number-identification)) MUST support the requirements from this subsecction.\r\n\r\nHardware\r\n\r\nThese are the hardware requirements for accessories that include NFC:\r\n\r\nThe accessory MUST use a programmable NFC tag.\r\nNFC tags MUST use the NFC Data Exchange Format (NDEF) as defined by NFC Forum\u2122 in NDEF 1.0 NFCForum\u2011TS\u2011NDEF 1.0. An NDEF message is defined as a group of individual NDEF records as defined by NFC Forum\u2122 in NFC Record Type Definition (RTD) RTD 1.0 NFCForum\u2011TS\u2011RTD 1.0.\r\nThe payload for NFC tags MUST use NDEF URI Record Type Definition as defined by NFC Forum\u2122 in URI Record Type Definition RTD\u2011URI 1.0 NFCForum\u2011TS\u2011RTD URI 1.0.\r\nNFC tag types MUST be type 2 or greater.\r\nThe NFC tag SHALL not be scannable when the accessory is still in the packaging.\r\nThe payload MUST be scannable when holding an NFC-enabled device near the center of the NFC tag on the accessory. Recommended NFC tag performance guidelines are defined by NFC Forum\u2122 in Tag Performance Requirements Document.\r\nThe NFC implemention of the accessory MUST be configured as a NFC tag.\r\nNFC specification documents can be found here {{NFCForum}}.",
+      "createdAt": "2024-10-27T23:27:06Z",
+      "updatedAt": "2024-10-27T23:37:46Z",
       "closedAt": null,
       "comments": []
     }
