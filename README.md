@@ -5,7 +5,7 @@ This is the working area for the IETF [DULT Working Group](https://datatracker.i
 * [Editor's Copy](https://ietf-wg-dult.github.io/draft-ietf-dult-accesory-protocol/#go.draft-ietf-dult-accesory-protocol.html)
 * [Datatracker Page](https://datatracker.ietf.org/doc/draft-ietf-dult-accesory-protocol)
 * [Working Group Draft](https://datatracker.ietf.org/doc/html/draft-ietf-dult-accesory-protocol)
-* [Compare Editor's Copy to Working Group Draft](https://ietf-wg-dult.github.io/draft-ietf-dult-accesory-protocol/#go.draft-ietf-dult-accesory-protocol.diff)
+* [Compare Editor's Copy to Working Group Draft](https://ietf-wg-dult.github.io/accesory-protocol/#go.draft-ietf-dult-accesory-protocol.diff)
 
 
 ## Contributing
