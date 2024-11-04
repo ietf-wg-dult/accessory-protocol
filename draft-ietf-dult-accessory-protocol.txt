@@ -5,12 +5,12 @@
 Detecting Unwanted Location Trackers                          B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                                D. Lazarov
-Expires: 10 April 2025                                            Google
+Expires: 8 May 2025                                               Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                          7 October 2024
+                                                         4 November 2024
 
 
         Detecting Unwanted Location Trackers Accessory Protocol
@@ -61,7 +61,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 April 2025.
+   This Internet-Draft will expire on 8 May 2025.
 
 Copyright Notice
 
