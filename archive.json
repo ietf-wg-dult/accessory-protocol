@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2024-11-05T00:39:36.950462+00:00",
+  "timestamp": "2024-11-07T00:39:38.950808+00:00",
   "repo": "ietf-wg-dult/accessory-protocol",
   "labels": [
     {
@@ -78,9 +78,17 @@
       "labels": [],
       "body": "Copied this issue over from: https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/172\r\n\r\n@cstapl:\r\n\r\n3.14 & 3.14.1\r\n\r\nStrong concerns that we\u2019re making an allowance for vendors to opt out of printing the unique identifier in an easily accessible location on the physical device. It\u2019s my understanding that those identifiers are a critical part of the physical evidence in law enforcement response to unwanted tracking related calls from victims, and in the prosecution of such cases. Recommend we discuss this issue with victim advocacy groups, and consider requiring all identifiers to be printed on the physical device.",
       "createdAt": "2024-10-09T02:51:20Z",
-      "updatedAt": "2024-10-09T02:51:20Z",
+      "updatedAt": "2024-11-06T10:23:48Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "npdoty",
+          "authorAssociation": "NONE",
+          "body": "While there can be a small privacy effect in having a printed serial number, it seems strongly outweighed by the risk of unwanted tracking that couldn't be easily reported. In particular, a rotating identifier electronically accessible via NFC or similar doesn't work for the person who finds an unwanted tracker and smashes it and then still needs the ability to report to law enforcement. While trackers can and should provide disablement instructions, we should anticipate that smashing the device to disable it will be a common action taken for protection.\r\n\r\nBecause an etched serial number can be scratched out, it seems like there are reasons to include near-field electronic access as well as printed form, and, per dkg, maybe we should recommend that the printed form also be printed internally on the device.",
+          "createdAt": "2024-11-06T10:23:46Z",
+          "updatedAt": "2024-11-06T10:23:46Z"
+        }
+      ]
     },
     {
       "number": 3,
@@ -190,9 +198,17 @@
       "labels": [],
       "body": "As the tracker sizes getting smaller, it might be a challenge to fit in a sound maker. This issue is to initiate discussion on how to handle this in the accessory protocol.",
       "createdAt": "2024-10-09T21:20:23Z",
-      "updatedAt": "2024-10-09T21:20:23Z",
+      "updatedAt": "2024-11-06T10:04:30Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "npdoty",
+          "authorAssociation": "NONE",
+          "body": "Colleagues' blog post on the threats of unwanted tracking for people with disabilities:\r\nhttps://cdt.org/insights/centering-disability-in-mitigating-harms-of-bluetooth-tracking-technology/\r\n\r\nThat recommends that we should not only maintain sound requirements, but also look at requirements for haptics/lights so that it's detectable for people that can't easily hear the sound maker.",
+          "createdAt": "2024-11-06T10:04:29Z",
+          "updatedAt": "2024-11-06T10:04:29Z"
+        }
+      ]
     },
     {
       "number": 10,
