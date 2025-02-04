@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-02-02T00:42:22.450725+00:00",
+  "timestamp": "2025-02-04T00:39:49.604900+00:00",
   "repo": "ietf-wg-dult/accessory-protocol",
   "labels": [
     {
@@ -191,15 +191,15 @@
       "id": "I_kwDOM86dss6ZmY6Q",
       "title": "Sound maker requirement",
       "url": "https://github.com/ietf-wg-dult/accessory-protocol/issues/9",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "siddikaparlak",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "As the tracker sizes getting smaller, it might be a challenge to fit in a sound maker. This issue is to initiate discussion on how to handle this in the accessory protocol.",
       "createdAt": "2024-10-09T21:20:23Z",
-      "updatedAt": "2024-11-06T10:04:30Z",
-      "closedAt": null,
+      "updatedAt": "2025-02-03T19:39:11Z",
+      "closedAt": "2025-02-03T19:39:09Z",
       "comments": [
         {
           "author": "npdoty",
@@ -207,6 +207,13 @@
           "body": "Colleagues' blog post on the threats of unwanted tracking for people with disabilities:\r\nhttps://cdt.org/insights/centering-disability-in-mitigating-harms-of-bluetooth-tracking-technology/\r\n\r\nThat recommends that we should not only maintain sound requirements, but also look at requirements for haptics/lights so that it's detectable for people that can't easily hear the sound maker.",
           "createdAt": "2024-11-06T10:04:29Z",
           "updatedAt": "2024-11-06T10:04:29Z"
+        },
+        {
+          "author": "siddikaparlak",
+          "authorAssociation": "NONE",
+          "body": "Consensus is to keep this requirement hence closing this issue.\n\nMinutes from this part of the discussion below:\n\nNick Doty:\nhttps://cdt.org/insights/centering-disability-in-mitigating-harms-of-bluetooth-tracking-technology/\nspeakers are important for people with vision disabilities.\nmaybe we should require haptics or flashing lights or things\nlike that.\ndkg: i don't understand the argument for removal. just because\nmanufacturers want to make something smaller/cheaper/whatever\ndoesn't mean that we should say that's OK. This is about how to\nmake a responsible device.\nAndrew Campling: i predict a market for things like accessories\nthat will muffle sound and block visual detection (waves his\nkeychain)\n\n",
+          "createdAt": "2025-02-03T19:39:09Z",
+          "updatedAt": "2025-02-03T19:39:09Z"
         }
       ]
     },
