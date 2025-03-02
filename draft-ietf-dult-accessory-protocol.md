@@ -50,7 +50,10 @@ normative:
    format:
      PDF: https://www.bluetooth.org/DocMan/handlers/DownloadDoc.ashx?doc_id=556599
 
-
+ NFCForum:
+   title: NFC Forum
+   format:
+     PDF: https://nfc-forum.org/build/specifications#core-specification
 
 RFC8126:
 
@@ -686,6 +689,24 @@ The owner registry SHOULD be stored for a minimum of 25 days after an owner has 
 ### Availability for law enforcement
 Available ownership registry information SHOULD be produced in response to a valid law enforcement request seeking information related to the misuse of location-tracking accessories provided that the request is submitted pursuant to defined procedures for obtaining such information. Network providers SHOULD define their own procedures for submission of valid legal requests from law enforcement.
 
+## NFC Requirements {#NFC-requirements}
+
+Accessories that optionally include NFC (see [Serial number identification](#serial-number-identification)) MUST support the requirements from this subsecction.
+
+### Hardware
+
+These are the hardware requirements for accessories that include NFC:
+
+- The accessory MUST use a programmable NFC tag.
+- NFC tags MUST use the NFC Data Exchange Format (NDEF) as defined by NFC Forum™ in NDEF 1.0 NFCForum‑TS‑NDEF 1.0.
+An NDEF message is defined as a group of individual NDEF records as defined by NFC Forum™ in NFC Record Type Definition (RTD) RTD 1.0 NFCForum‑TS‑RTD 1.0.
+- The payload for NFC tags MUST use NDEF URI Record Type Definition as defined by NFC Forum™ in URI Record Type Definition RTD‑URI 1.0 NFCForum‑TS‑RTD URI 1.0.
+- NFC tag types MUST be type 2 or greater.
+- The NFC tag SHALL not be scannable when the accessory is still in the packaging.
+- The payload MUST be scannable when holding an NFC-enabled device near the center of the NFC tag on the accessory. Recommended NFC tag performance guidelines are defined by NFC Forum™ in Tag Performance Requirements Document.
+- The NFC implemention of the accessory MUST be configured as a NFC tag.
+
+NFC specification documents can be found here {{NFCForum}}.
 
 # Accessory Category Value
 Accessory manufacturer’s MUST pick an accessory category value that closest resembles their physical product.
