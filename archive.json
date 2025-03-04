@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-02T00:44:42.686832+00:00",
+  "timestamp": "2025-03-04T00:42:27.200520+00:00",
   "repo": "ietf-wg-dult/accessory-protocol",
   "labels": [
     {
@@ -300,24 +300,26 @@
       "id": "PR_kwDOM86dss6Avwte",
       "title": "Update README.md",
       "url": "https://github.com/ietf-wg-dult/accessory-protocol/pull/13",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "seanturner",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2024-11-04T03:33:04Z",
-      "updatedAt": "2024-11-04T03:45:14Z",
+      "updatedAt": "2025-03-02T23:12:36Z",
       "baseRepository": "ietf-wg-dult/accessory-protocol",
       "baseRefName": "main",
       "baseRefOid": "a2802abf66076a0f170af2b3e1c4c73a47ea5a09",
       "headRepository": "ietf-wg-dult/accessory-protocol",
       "headRefName": "seanturner-readme",
       "headRefOid": "edb404e668694e6747247d9ac712f4056f9d7a23",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2025-03-02T23:12:36Z",
+      "mergedAt": "2025-03-02T23:12:36Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "e4bdadba971e74f005045ce54ab91eeb2fc8a65b"
+      },
       "comments": [],
       "reviews": [
         {
@@ -341,6 +343,34 @@
           ]
         }
       ]
+    },
+    {
+      "number": 15,
+      "id": "PR_kwDOM86dss6NE_Nx",
+      "title": "Copy in NFC requirements section from Apple + Google spec",
+      "url": "https://github.com/ietf-wg-dult/accessory-protocol/pull/15",
+      "state": "OPEN",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "bledvina"
+      ],
+      "labels": [],
+      "body": "Per IETF 121, we discussed copying over this missing NFC section into the accessory protocol document.",
+      "createdAt": "2025-03-02T23:11:25Z",
+      "updatedAt": "2025-03-02T23:12:06Z",
+      "baseRepository": "ietf-wg-dult/accessory-protocol",
+      "baseRefName": "main",
+      "baseRefOid": "a2802abf66076a0f170af2b3e1c4c73a47ea5a09",
+      "headRepository": "ietf-wg-dult/accessory-protocol",
+      "headRefName": "bledvina-add-nfc-requirements",
+      "headRefOid": "de1ccacba638fc3bc3b0851bd703e5b2a83c7079",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
