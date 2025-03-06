@@ -691,7 +691,7 @@ Available ownership registry information SHOULD be produced in response to a val
 
 ## NFC Requirements {#NFC-requirements}
 
-Accessories that optionally include NFC (see [Serial number identification](#serial-number-identification)) MUST support the requirements from this subsecction.
+Accessories that include NFC (see [Serial number identification](#serial-number-identification)) MUST support the requirements from this subsecction.
 
 ### Hardware
 
