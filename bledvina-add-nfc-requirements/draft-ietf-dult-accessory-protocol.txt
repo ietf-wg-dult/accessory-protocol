@@ -5,12 +5,12 @@
 Detecting Unwanted Location Trackers                          B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                                D. Lazarov
-Expires: 3 September 2025                                         Google
+Expires: 7 September 2025                                         Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                            2 March 2025
+                                                            6 March 2025
 
 
         Detecting Unwanted Location Trackers Accessory Protocol
@@ -61,7 +61,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 3 September 2025.
+   This Internet-Draft will expire on 7 September 2025.
 
 Copyright Notice
 
@@ -1430,9 +1430,9 @@ Table of Contents
 
 3.17.  NFC Requirements
 
-   Accessories that optionally include NFC (see Serial number
-   identification (Section 3.15.1)) MUST support the requirements from
-   this subsecction.
+   Accessories that include NFC (see Serial number identification
+   (Section 3.15.1)) MUST support the requirements from this
+   subsecction.
 
 3.17.1.  Hardware
 
