@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-04T00:42:27.200520+00:00",
+  "timestamp": "2025-03-06T00:42:20.158121+00:00",
   "repo": "ietf-wg-dult/accessory-protocol",
   "labels": [
     {
@@ -177,7 +177,7 @@
       "url": "https://github.com/ietf-wg-dult/accessory-protocol/issues/8",
       "state": "OPEN",
       "author": "siddikaparlak",
-      "authorAssociation": "NONE",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "It might be a good idea to use a consistent terminology across all documents under DULT WG. This can perhaps be a standalone document.",
@@ -193,7 +193,7 @@
       "url": "https://github.com/ietf-wg-dult/accessory-protocol/issues/9",
       "state": "CLOSED",
       "author": "siddikaparlak",
-      "authorAssociation": "NONE",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "As the tracker sizes getting smaller, it might be a challenge to fit in a sound maker. This issue is to initiate discussion on how to handle this in the accessory protocol.",
@@ -210,7 +210,7 @@
         },
         {
           "author": "siddikaparlak",
-          "authorAssociation": "NONE",
+          "authorAssociation": "COLLABORATOR",
           "body": "Consensus is to keep this requirement hence closing this issue.\n\nMinutes from this part of the discussion below:\n\nNick Doty:\nhttps://cdt.org/insights/centering-disability-in-mitigating-harms-of-bluetooth-tracking-technology/\nspeakers are important for people with vision disabilities.\nmaybe we should require haptics or flashing lights or things\nlike that.\ndkg: i don't understand the argument for removal. just because\nmanufacturers want to make something smaller/cheaper/whatever\ndoesn't mean that we should say that's OK. This is about how to\nmake a responsible device.\nAndrew Campling: i predict a market for things like accessories\nthat will muffle sound and block visual detection (waves his\nkeychain)\n\n",
           "createdAt": "2025-02-03T19:39:09Z",
           "updatedAt": "2025-02-03T19:39:09Z"
@@ -224,7 +224,7 @@
       "url": "https://github.com/ietf-wg-dult/accessory-protocol/issues/10",
       "state": "OPEN",
       "author": "siddikaparlak",
-      "authorAssociation": "NONE",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Review what kind of items the accessory protocol will be applicable to. Currently this section mentions \"discoverability\" and quantifies it with size requirements. \r\n\r\nhttps://github.com/ietf-wg-dult/accessory-protocol/blob/main/draft-ietf-dult-accessory-protocol.md#applicability",
@@ -358,7 +358,7 @@
       "labels": [],
       "body": "Per IETF 121, we discussed copying over this missing NFC section into the accessory protocol document.",
       "createdAt": "2025-03-02T23:11:25Z",
-      "updatedAt": "2025-03-02T23:12:06Z",
+      "updatedAt": "2025-03-04T20:21:40Z",
       "baseRepository": "ietf-wg-dult/accessory-protocol",
       "baseRefName": "main",
       "baseRefOid": "a2802abf66076a0f170af2b3e1c4c73a47ea5a09",
@@ -370,7 +370,41 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOM86dss6ee5pK",
+          "commit": {
+            "abbreviatedOid": "de1ccac"
+          },
+          "author": "siddikaparlak",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-04T20:21:27Z",
+          "updatedAt": "2025-03-04T20:21:27Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "Accessories that optionally include NFC .....\r\n\r\nWhat does it mean to \"optionally\" include NFC? ",
+              "createdAt": "2025-03-04T20:21:27Z",
+              "updatedAt": "2025-03-04T20:21:28Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOM86dss6ee5uo",
+          "commit": {
+            "abbreviatedOid": "de1ccac"
+          },
+          "author": "siddikaparlak",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2025-03-04T20:21:40Z",
+          "updatedAt": "2025-03-04T20:21:40Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
