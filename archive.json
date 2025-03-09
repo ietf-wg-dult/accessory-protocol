@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-06T00:42:20.158121+00:00",
+  "timestamp": "2025-03-09T00:37:20.701305+00:00",
   "repo": "ietf-wg-dult/accessory-protocol",
   "labels": [
     {
@@ -349,7 +349,7 @@
       "id": "PR_kwDOM86dss6NE_Nx",
       "title": "Copy in NFC requirements section from Apple + Google spec",
       "url": "https://github.com/ietf-wg-dult/accessory-protocol/pull/15",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "bledvina",
       "authorAssociation": "COLLABORATOR",
       "assignees": [
@@ -358,17 +358,19 @@
       "labels": [],
       "body": "Per IETF 121, we discussed copying over this missing NFC section into the accessory protocol document.",
       "createdAt": "2025-03-02T23:11:25Z",
-      "updatedAt": "2025-03-04T20:21:40Z",
+      "updatedAt": "2025-03-06T16:07:08Z",
       "baseRepository": "ietf-wg-dult/accessory-protocol",
       "baseRefName": "main",
       "baseRefOid": "a2802abf66076a0f170af2b3e1c4c73a47ea5a09",
       "headRepository": "ietf-wg-dult/accessory-protocol",
       "headRefName": "bledvina-add-nfc-requirements",
-      "headRefOid": "de1ccacba638fc3bc3b0851bd703e5b2a83c7079",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "b00bf323b1c649f0692e015ce879c413ac33294c",
+      "closedAt": "2025-03-06T16:07:08Z",
+      "mergedAt": "2025-03-06T16:07:08Z",
+      "mergedBy": "bledvina",
+      "mergeCommit": {
+        "oid": "d579f69dfbf2a63942b28964aa1d67773a51dfb0"
+      },
       "comments": [],
       "reviews": [
         {
@@ -403,6 +405,26 @@
           "createdAt": "2025-03-04T20:21:40Z",
           "updatedAt": "2025-03-04T20:21:40Z",
           "comments": []
+        },
+        {
+          "id": "PRR_kwDOM86dss6e1xry",
+          "commit": {
+            "abbreviatedOid": "de1ccac"
+          },
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-03-06T15:56:48Z",
+          "updatedAt": "2025-03-06T15:56:48Z",
+          "comments": [
+            {
+              "originalPosition": 18,
+              "body": "Good point. That's superfluous. Will fix.",
+              "createdAt": "2025-03-06T15:56:48Z",
+              "updatedAt": "2025-03-06T15:56:48Z"
+            }
+          ]
         }
       ]
     }
