@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-09T00:37:20.701305+00:00",
+  "timestamp": "2025-03-11T00:42:39.469582+00:00",
   "repo": "ietf-wg-dult/accessory-protocol",
   "labels": [
     {
@@ -238,16 +238,24 @@
       "id": "I_kwDOM86dss6b-20Y",
       "title": "Add NFC requirements section",
       "url": "https://github.com/ietf-wg-dult/accessory-protocol/issues/11",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bledvina",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "This section of NFC requirements was recently added to the Apple + Google industry standard for unwanted tracking:  https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/blob/main/draft-ledvina-apple-google-unwanted-trackers.md#nfc-requirements-nfc-requirements\r\n\r\nA version similar to this should be added to the DULT WG Document #3 \r\n\r\n------\r\n\r\nNFC Requirements {#NFC-requirements}\r\n\r\nAccessories that optionally include NFC (see [Serial number identification](https://github.com/ietf-wg-dult/accessory-protocol/issues/new#serial-number-identification)) MUST support the requirements from this subsecction.\r\n\r\nHardware\r\n\r\nThese are the hardware requirements for accessories that include NFC:\r\n\r\nThe accessory MUST use a programmable NFC tag.\r\nNFC tags MUST use the NFC Data Exchange Format (NDEF) as defined by NFC Forum\u2122 in NDEF 1.0 NFCForum\u2011TS\u2011NDEF 1.0. An NDEF message is defined as a group of individual NDEF records as defined by NFC Forum\u2122 in NFC Record Type Definition (RTD) RTD 1.0 NFCForum\u2011TS\u2011RTD 1.0.\r\nThe payload for NFC tags MUST use NDEF URI Record Type Definition as defined by NFC Forum\u2122 in URI Record Type Definition RTD\u2011URI 1.0 NFCForum\u2011TS\u2011RTD URI 1.0.\r\nNFC tag types MUST be type 2 or greater.\r\nThe NFC tag SHALL not be scannable when the accessory is still in the packaging.\r\nThe payload MUST be scannable when holding an NFC-enabled device near the center of the NFC tag on the accessory. Recommended NFC tag performance guidelines are defined by NFC Forum\u2122 in Tag Performance Requirements Document.\r\nThe NFC implemention of the accessory MUST be configured as a NFC tag.\r\nNFC specification documents can be found here {{NFCForum}}.",
       "createdAt": "2024-10-27T23:27:06Z",
-      "updatedAt": "2024-10-27T23:37:46Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2025-03-10T16:15:28Z",
+      "closedAt": "2025-03-10T16:15:26Z",
+      "comments": [
+        {
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Addressed this with PR: https://github.com/ietf-wg-dult/accessory-protocol/pull/15",
+          "createdAt": "2025-03-10T16:15:26Z",
+          "updatedAt": "2025-03-10T16:15:26Z"
+        }
+      ]
     },
     {
       "number": 14,
@@ -262,6 +270,22 @@
       "body": "There might be situations where the tracker is very well hidden and potentially its speaker is removed. In this scenario, despite receiving multiple alerts on their phone, the victim cannot locate the tag and disable it. Should the accessory protocol allow remote disablement of trackers and include recommendations/requirements about it? ",
       "createdAt": "2025-02-27T22:19:29Z",
       "updatedAt": "2025-02-27T22:19:29Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 16,
+      "id": "I_kwDOM86dss6tUVs4",
+      "title": "BT payload format",
+      "url": "https://github.com/ietf-wg-dult/accessory-protocol/issues/16",
+      "state": "OPEN",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "There has been regular feedback concerning the opaque proprietary company payload in the BT advertisement. See section 3.4.2.\n\nThe reasoning for the content being undefined is it allows each finder network to define their own payload(s). Would concretely defining the privacy requirements address concerns?\n",
+      "createdAt": "2025-03-10T16:16:52Z",
+      "updatedAt": "2025-03-10T16:16:52Z",
       "closedAt": null,
       "comments": []
     }
