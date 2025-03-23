@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-20T00:42:20.892392+00:00",
+  "timestamp": "2025-03-23T00:47:00.386953+00:00",
   "repo": "ietf-wg-dult/accessory-protocol",
   "labels": [
     {
@@ -269,9 +269,17 @@
       "labels": [],
       "body": "There might be situations where the tracker is very well hidden and potentially its speaker is removed. In this scenario, despite receiving multiple alerts on their phone, the victim cannot locate the tag and disable it. Should the accessory protocol allow remote disablement of trackers and include recommendations/requirements about it? ",
       "createdAt": "2025-02-27T22:19:29Z",
-      "updatedAt": "2025-02-27T22:19:29Z",
+      "updatedAt": "2025-03-20T09:00:01Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "ekr",
+          "authorAssociation": "NONE",
+          "body": "I think this is a reasonable thing to consider. IMO the place to start here is with trying to lay out the conditions under which we would allow remote disablement. For instance, it's an obvious problem if I can disable every tracker around me regardless of whether it's in separated mode or not.",
+          "createdAt": "2025-03-20T09:00:00Z",
+          "updatedAt": "2025-03-20T09:00:00Z"
+        }
+      ]
     },
     {
       "number": 16,
