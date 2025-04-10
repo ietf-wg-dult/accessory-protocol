@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-01T00:51:26.732693+00:00",
+  "timestamp": "2025-04-10T00:43:54.055565+00:00",
   "repo": "ietf-wg-dult/accessory-protocol",
   "labels": [
     {
@@ -296,6 +296,22 @@
       "updatedAt": "2025-03-10T16:16:52Z",
       "closedAt": null,
       "comments": []
+    },
+    {
+      "number": 17,
+      "id": "I_kwDOM86dss6x1GUe",
+      "title": "Serial Number Letter & Number Ambiguity",
+      "url": "https://github.com/ietf-wg-dult/accessory-protocol/issues/17",
+      "state": "OPEN",
+      "author": "cstapl",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The number of\"0\" and the letter \"O\" and the number \"6\" and the letter \"G\" can be easily confused in serial numbers. \n\nBecause these numbers act as critical safety elements, it will be important for accessory makers to choose fonts that clearly differentiate these easily confused numbers and letters. ",
+      "createdAt": "2025-04-09T17:47:35Z",
+      "updatedAt": "2025-04-09T17:47:35Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
@@ -459,6 +475,32 @@
           ]
         }
       ]
+    },
+    {
+      "number": 18,
+      "id": "PR_kwDOM86dss6SAD0E",
+      "title": "TEST COMMIT",
+      "url": "https://github.com/ietf-wg-dult/accessory-protocol/pull/18",
+      "state": "CLOSED",
+      "author": "bledvina",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "this is a test",
+      "createdAt": "2025-04-09T20:07:20Z",
+      "updatedAt": "2025-04-09T21:05:07Z",
+      "baseRepository": "ietf-wg-dult/accessory-protocol",
+      "baseRefName": "main",
+      "baseRefOid": "d579f69dfbf2a63942b28964aa1d67773a51dfb0",
+      "headRepository": "ietf-wg-dult/accessory-protocol",
+      "headRefName": "bledvina-patch-1",
+      "headRefOid": "f083ecd2ef6b4090aceae7d219a5d68bd1bc8691",
+      "closedAt": "2025-04-09T21:05:01Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
