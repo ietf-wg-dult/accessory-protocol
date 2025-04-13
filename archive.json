@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-10T00:43:54.055565+00:00",
+  "timestamp": "2025-04-13T02:10:58.545225+00:00",
   "repo": "ietf-wg-dult/accessory-protocol",
   "labels": [
     {
@@ -310,6 +310,22 @@
       "body": "The number of\"0\" and the letter \"O\" and the number \"6\" and the letter \"G\" can be easily confused in serial numbers. \n\nBecause these numbers act as critical safety elements, it will be important for accessory makers to choose fonts that clearly differentiate these easily confused numbers and letters. ",
       "createdAt": "2025-04-09T17:47:35Z",
       "updatedAt": "2025-04-09T17:47:35Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 19,
+      "id": "I_kwDOM86dss6yMfFm",
+      "title": "Update document to reflect serial number discussion at IETF 122",
+      "url": "https://github.com/ietf-wg-dult/accessory-protocol/issues/19",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Per our discussion at IETF 122, we agreed on the following:\n\n- Tags should have a serial number that is physically printed on the device but hidden from view\n- The tag's serial number should be shown to users when 1) they receive a passive notification, 2) a device shows up on an active scan as a tracker suspected of unwanted location tracking. Users should also be shown obfuscated information about the tag owner, such as the last four digits of the registered phone number or an obfuscated email address.\n- If users want to find out the identity of the tag owner, they need to do so through law enforcement, and this will not be considered in scope for the document per the WG charter: \"The WG will not define requirements for interactions between accessory manufacturers and law enforcement.\"\n\nSee [related issue](https://github.com/ietf-wg-dult/threat-model/issues/90) on the threat model document page.\n\nHere are some updates that I think are required for this document to address that understanding:\n\n1. Requiring the use of serial number identification (as opposed to other privacy preserving methods) <- we didn't discuss this explicitly, so let's discuss if you think this is too constraining\n2. Requiring that the serial number be easily accessible but hidden (just minor language updates)\n3. We might want to relax the availability for law enforcement section. Right now it says that \"Available ownership registry information SHOULD be produced in response to a valid law enforcement request.\" We should probably change this to MAY to avoid seeming like we are specifying how law enforcement should be interfaced with.\n\nI think the other stuff has been accounted for, aside from active scanning, which isn't in the document at all right now (and might belong elsewhere anyway) so that is a separate issue.\n\nHappy to start on a PR for this if the changes proposed are friendly.\n\n",
+      "createdAt": "2025-04-11T19:53:49Z",
+      "updatedAt": "2025-04-11T19:53:49Z",
       "closedAt": null,
       "comments": []
     }
