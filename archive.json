@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-13T02:10:58.545225+00:00",
+  "timestamp": "2025-04-27T00:49:48.447494+00:00",
   "repo": "ietf-wg-dult/accessory-protocol",
   "labels": [
     {
@@ -71,15 +71,15 @@
       "id": "I_kwDOM86dss6ZdT1s",
       "title": "Printing Non-SN Unique Identifiers (copied over)",
       "url": "https://github.com/ietf-wg-dult/accessory-protocol/issues/2",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "bledvina",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Copied this issue over from: https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/172\r\n\r\n@cstapl:\r\n\r\n3.14 & 3.14.1\r\n\r\nStrong concerns that we\u2019re making an allowance for vendors to opt out of printing the unique identifier in an easily accessible location on the physical device. It\u2019s my understanding that those identifiers are a critical part of the physical evidence in law enforcement response to unwanted tracking related calls from victims, and in the prosecution of such cases. Recommend we discuss this issue with victim advocacy groups, and consider requiring all identifiers to be printed on the physical device.",
       "createdAt": "2024-10-09T02:51:20Z",
-      "updatedAt": "2024-11-06T10:23:48Z",
-      "closedAt": null,
+      "updatedAt": "2025-04-25T21:09:25Z",
+      "closedAt": "2025-04-25T21:09:23Z",
       "comments": [
         {
           "author": "npdoty",
@@ -87,6 +87,13 @@
           "body": "While there can be a small privacy effect in having a printed serial number, it seems strongly outweighed by the risk of unwanted tracking that couldn't be easily reported. In particular, a rotating identifier electronically accessible via NFC or similar doesn't work for the person who finds an unwanted tracker and smashes it and then still needs the ability to report to law enforcement. While trackers can and should provide disablement instructions, we should anticipate that smashing the device to disable it will be a common action taken for protection.\r\n\r\nBecause an etched serial number can be scratched out, it seems like there are reasons to include near-field electronic access as well as printed form, and, per dkg, maybe we should recommend that the printed form also be printed internally on the device.",
           "createdAt": "2024-11-06T10:23:46Z",
           "updatedAt": "2024-11-06T10:23:46Z"
+        },
+        {
+          "author": "siddikaparlak",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Discussions in meetings #121 and #122 covered the topic of printing serial numbers on trackers, with the following highlights:\n\n- The actual benefit of a printed serial number is debatable, as it depends on whether the network uses that particular identifier. If it doesn't, or if no serial number exists, its usefulness for owner identification is limited. Even as visual evidence, its value is diminished by the low cost of trackers. \n- The working group's goal, as defined in the charter, does not extend to specifying how accessory manufacturers should interact with law enforcement.\n- Currently, most manufacturers already print serial numbers, mainly for their internal inventory management.\n- Printing an identifier relates more to the physical aspects of the tracker rather than its software, making it less pertinent to software-related changes.\n- Printed serial numbers are also susceptible to tampering, likely more so than electronic identifiers.\n\nConsidering these points, we prefer keeping the relevant section as is for now. I will close the issue but feel free to re-open if there are further questions. ",
+          "createdAt": "2025-04-25T21:09:24Z",
+          "updatedAt": "2025-04-25T21:09:24Z"
         }
       ]
     },
