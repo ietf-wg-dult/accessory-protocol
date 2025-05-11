@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-04-27T00:49:48.447494+00:00",
+  "timestamp": "2025-05-11T00:51:19.794410+00:00",
   "repo": "ietf-wg-dult/accessory-protocol",
   "labels": [
     {
@@ -311,12 +311,14 @@
       "url": "https://github.com/ietf-wg-dult/accessory-protocol/issues/17",
       "state": "OPEN",
       "author": "cstapl",
-      "authorAssociation": "NONE",
-      "assignees": [],
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [
+        "cstapl"
+      ],
       "labels": [],
       "body": "The number of\"0\" and the letter \"O\" and the number \"6\" and the letter \"G\" can be easily confused in serial numbers. \n\nBecause these numbers act as critical safety elements, it will be important for accessory makers to choose fonts that clearly differentiate these easily confused numbers and letters. ",
       "createdAt": "2025-04-09T17:47:35Z",
-      "updatedAt": "2025-04-09T17:47:35Z",
+      "updatedAt": "2025-05-08T19:00:19Z",
       "closedAt": null,
       "comments": []
     },
