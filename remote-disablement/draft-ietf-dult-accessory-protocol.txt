@@ -5,12 +5,12 @@
 Detecting Unwanted Location Trackers                          B. Ledvina
 Internet-Draft                                                     Apple
 Intended status: Informational                                D. Lazarov
-Expires: 11 October 2025                                          Google
+Expires: 16 November 2025                                         Google
                                                              B. Detwiler
                                                                    Apple
                                                           S. P. Polatkan
                                                                   Google
-                                                            9 April 2025
+                                                             15 May 2025
 
 
         Detecting Unwanted Location Trackers Accessory Protocol
@@ -61,7 +61,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 11 October 2025.
+   This Internet-Draft will expire on 16 November 2025.
 
 Copyright Notice
 
@@ -120,7 +120,8 @@ Table of Contents
        3.13.6.  Recommended Finding Options
        3.13.7.  Future hardware
      3.14. Disablement
-       3.14.1.  Disablement instructions
+       3.14.1.  Physical disablement instructions
+       3.14.2.  Remote disablement
      3.15. Identification
        3.15.1.  Serial number identification
        3.15.2.  Identifier retrieval capability
@@ -376,8 +377,6 @@ Table of Contents
    address.  Additionally, the LE advertisement needs to be connectable
    to allow for non-owner unencrypted connections to the accessory.
    Further details are discussed in Section 3.11.
-
-   TEST TEST TEST
 
    Proprietary company payload data is both OPTIONAL and variable
    length.
@@ -1296,18 +1295,27 @@ Table of Contents
 3.14.  Disablement
 
    The accessory SHALL have a way to be disabled such that its future
-   locations cannot be seen by its owner.  Disablement SHALL be done via
-   some physical action (e.g., button press, gesture, removal of
-   battery, etc.).
+   locations cannot be seen by its owner.
 
-3.14.1.  Disablement instructions
+3.14.1.  Physical disablement instructions
 
-   The accessory manufacturer SHALL provide both a text description of
-   how to disable the accessory as well as a visual depiction (e.g.
-   image, diagram, animation, etc.) that MUST be available when the
-   platform is online and OPTIONALLY when offline.  Disablement
-   procedure or instructions CAN change with accessory firmware updates.
-   These are provided as part of the onboarding process (Section 7).
+   Physical disablement SHALL be done via some physical action (e.g.,
+   button press, gesture, removal of battery, etc.).  The accessory
+   manufacturer SHALL provide both a text description of how to disable
+   the accessory as well as a visual depiction (e.g. image, diagram,
+   animation, etc.) that MUST be available when the platform is online
+   and OPTIONALLY when offline.  Disablement procedure or instructions
+   CAN change with accessory firmware updates.  These are provided as
+   part of the onboarding process (Section 7).
+
+3.14.2.  Remote disablement
+
+   Platforms MAY provide a way of disabling an accessory without
+   requiring physical possesion.  This SHALL be allowed only for the
+   accessories that are within the bluetooth range and not in near-owner
+   mode.  Platforms MAY also add further conditions for remote
+   disablement, such as requiring a prior alert for the accessory or
+   user confirmation.
 
 3.15.  Identification
 

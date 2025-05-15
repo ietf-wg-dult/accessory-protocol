@@ -19,7 +19,7 @@
 <meta content="draft-ietf-dult-accessory-protocol-latest" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.28.1
-    Python 3.12.9
+    Python 3.12.10
     ConfigArgParse 1.7
     google-i18n-address 3.1.1
     intervaltree 3.1.0
@@ -1049,11 +1049,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Detecting Unwanted Location Trackers Acc</td>
-<td class="right">April 2025</td>
+<td class="right">May 2025</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Ledvina, et al.</td>
-<td class="center">Expires 11 October 2025</td>
+<td class="center">Expires 16 November 2025</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1066,12 +1066,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-dult-accessory-protocol-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-04-09" class="published">9 April 2025</time>
+<time datetime="2025-05-15" class="published">15 May 2025</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-10-11">11 October 2025</time></dd>
+<dd class="expires"><time datetime="2025-11-16">16 November 2025</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1133,7 +1133,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 11 October 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 16 November 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1293,7 +1293,10 @@ svg :is([fill="white"], [fill^="#fff"]) {
                 <p id="section-toc.1-1.3.2.14.1"><a href="#section-3.14" class="auto internal xref">3.14</a>. <a href="#name-disablement" class="internal xref">Disablement</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.14.2.1">
-                    <p id="section-toc.1-1.3.2.14.2.1.1"><a href="#section-3.14.1" class="auto internal xref">3.14.1</a>.  <a href="#name-disablement-instructions" class="internal xref">Disablement instructions</a></p>
+                    <p id="section-toc.1-1.3.2.14.2.1.1"><a href="#section-3.14.1" class="auto internal xref">3.14.1</a>.  <a href="#name-physical-disablement-instru" class="internal xref">Physical disablement instructions</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3.2.14.2.2">
+                    <p id="section-toc.1-1.3.2.14.2.2.1"><a href="#section-3.14.2" class="auto internal xref">3.14.2</a>.  <a href="#name-remote-disablement" class="internal xref">Remote disablement</a></p>
 </li>
                 </ul>
 </li>
@@ -1664,8 +1667,7 @@ keys at phase 3 (see Vol.3, Part H, Section 2.1 of the <span>[<a href="#BTCore5.
 Additionally, the LE advertisement needs to be connectable to allow for non-owner unencrypted connections to the accessory.
 Further details are discussed
 in <a href="#accessory-connections" class="auto internal xref">Section 3.11</a>.<a href="#section-3.4.2-3" class="pilcrow">¶</a></p>
-<p id="section-3.4.2-4">TEST TEST TEST<a href="#section-3.4.2-4" class="pilcrow">¶</a></p>
-<p id="section-3.4.2-5">Proprietary company payload data is both <span class="bcp14">OPTIONAL</span> and variable length.<a href="#section-3.4.2-5" class="pilcrow">¶</a></p>
+<p id="section-3.4.2-4">Proprietary company payload data is both <span class="bcp14">OPTIONAL</span> and variable length.<a href="#section-3.4.2-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="duration-of-advertising-location-enabled-advertisement-payload">
@@ -3008,13 +3010,21 @@ When the accessory is in this mode, it <span class="bcp14">MUST</span> respond w
         <h3 id="name-disablement">
 <a href="#section-3.14" class="section-number selfRef">3.14. </a><a href="#name-disablement" class="section-name selfRef">Disablement</a>
         </h3>
-<p id="section-3.14-1">The accessory <span class="bcp14">SHALL</span> have a way to be disabled such that its future locations cannot be seen by its owner. Disablement <span class="bcp14">SHALL</span> be done via some physical action (e.g., button press, gesture, removal of battery, etc.).<a href="#section-3.14-1" class="pilcrow">¶</a></p>
-<div id="disablement-instructions">
+<p id="section-3.14-1">The accessory <span class="bcp14">SHALL</span> have a way to be disabled such that its future locations cannot be seen by its owner.<a href="#section-3.14-1" class="pilcrow">¶</a></p>
+<div id="physical-disablement-instructions">
 <section id="section-3.14.1">
-          <h4 id="name-disablement-instructions">
-<a href="#section-3.14.1" class="section-number selfRef">3.14.1. </a><a href="#name-disablement-instructions" class="section-name selfRef">Disablement instructions</a>
+          <h4 id="name-physical-disablement-instru">
+<a href="#section-3.14.1" class="section-number selfRef">3.14.1. </a><a href="#name-physical-disablement-instru" class="section-name selfRef">Physical disablement instructions</a>
           </h4>
-<p id="section-3.14.1-1">The accessory manufacturer <span class="bcp14">SHALL</span> provide both a text description of how to disable the accessory as well as a visual depiction (e.g. image, diagram, animation, etc.) that <span class="bcp14">MUST</span> be available when the platform is online and OPTIONALLY when offline. Disablement procedure or instructions CAN change with accessory firmware updates. These are provided as part of the <span><a href="#onboarding" class="internal xref">onboarding process</a> (<a href="#onboarding" class="auto internal xref">Section 7</a>)</span>.<a href="#section-3.14.1-1" class="pilcrow">¶</a></p>
+<p id="section-3.14.1-1">Physical disablement <span class="bcp14">SHALL</span> be done via some physical action (e.g., button press, gesture, removal of battery, etc.). The accessory manufacturer <span class="bcp14">SHALL</span> provide both a text description of how to disable the accessory as well as a visual depiction (e.g. image, diagram, animation, etc.) that <span class="bcp14">MUST</span> be available when the platform is online and OPTIONALLY when offline. Disablement procedure or instructions CAN change with accessory firmware updates. These are provided as part of the <span><a href="#onboarding" class="internal xref">onboarding process</a> (<a href="#onboarding" class="auto internal xref">Section 7</a>)</span>.<a href="#section-3.14.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="remote-disablement">
+<section id="section-3.14.2">
+          <h4 id="name-remote-disablement">
+<a href="#section-3.14.2" class="section-number selfRef">3.14.2. </a><a href="#name-remote-disablement" class="section-name selfRef">Remote disablement</a>
+          </h4>
+<p id="section-3.14.2-1">Platforms <span class="bcp14">MAY</span> provide a way of disabling an accessory without requiring physical possesion. This <span class="bcp14">SHALL</span> be allowed only for the accessories that are within the bluetooth range and not in near-owner mode. Platforms <span class="bcp14">MAY</span> also add further conditions for remote disablement, such as requiring a prior alert for the accessory or user confirmation.<a href="#section-3.14.2-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
