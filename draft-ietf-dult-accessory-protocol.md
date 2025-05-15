@@ -627,10 +627,13 @@ The accessory SHOULD provide alternate means to help find it, e.g. by vibrating 
 Future technologies for finding MAY be considered in revisions of this document.
 
 ## Disablement
-The accessory SHALL have a way to be disabled such that its future locations cannot be seen by its owner. Disablement SHALL be done via some physical action (e.g., button press, gesture, removal of battery, etc.).
+The accessory SHALL have a way to be disabled such that its future locations cannot be seen by its owner.
 
-### Disablement instructions
-The accessory manufacturer SHALL provide both a text description of how to disable the accessory as well as a visual depiction (e.g. image, diagram, animation, etc.) that MUST be available when the platform is online and OPTIONALLY when offline. Disablement procedure or instructions CAN change with accessory firmware updates. These are provided as part of the [onboarding process](#onboarding).
+### Physical disablement instructions
+Physical disablement SHALL be done via some physical action (e.g., button press, gesture, removal of battery, etc.). The accessory manufacturer SHALL provide both a text description of how to disable the accessory as well as a visual depiction (e.g. image, diagram, animation, etc.) that MUST be available when the platform is online and OPTIONALLY when offline. Disablement procedure or instructions CAN change with accessory firmware updates. These are provided as part of the [onboarding process](#onboarding).
+
+### Remote disablement
+Platforms MAY provide a way of disabling an accessory without requiring physical possesion. This SHALL be allowed only for the accessories that are within the bluetooth range and not in near-owner mode. Platforms MAY also add further conditions for remote disablement, such as requiring a prior alert for the accessory or user confirmation.
 
 ## Identification
 The accessory MUST include a way to uniquely identify it - either via a serial number or other privacy-preserving solution. Guidelines for serial numbers only apply if the accessory supports identification via a serial number.
