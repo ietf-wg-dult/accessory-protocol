@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-11T00:51:19.794410+00:00",
+  "timestamp": "2025-05-18T00:52:03.573045+00:00",
   "repo": "ietf-wg-dult/accessory-protocol",
   "labels": [
     {
@@ -526,6 +526,46 @@
       "mergeCommit": null,
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 20,
+      "id": "PR_kwDOM86dss6WZc9b",
+      "title": "Add language for remote disablement",
+      "url": "https://github.com/ietf-wg-dult/accessory-protocol/pull/20",
+      "state": "OPEN",
+      "author": "siddikaparlak",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-05-15T22:55:30Z",
+      "updatedAt": "2025-05-16T15:48:36Z",
+      "baseRepository": "ietf-wg-dult/accessory-protocol",
+      "baseRefName": "main",
+      "baseRefOid": "d579f69dfbf2a63942b28964aa1d67773a51dfb0",
+      "headRepository": "ietf-wg-dult/accessory-protocol",
+      "headRefName": "remote-disablement",
+      "headRefOid": "f35d5bea658b4817210ccde300327502bad296f6",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDOM86dss6psirg",
+          "commit": {
+            "abbreviatedOid": "f35d5be"
+          },
+          "author": "bledvina",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "@siddikaparlak I think we want to add:\r\n- policy for disablement -- how long, how to re-enable, etc.\r\n- opcode(s) for disablement",
+          "createdAt": "2025-05-16T15:48:36Z",
+          "updatedAt": "2025-05-16T15:48:36Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
