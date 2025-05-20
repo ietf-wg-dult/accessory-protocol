@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-18T00:52:03.573045+00:00",
+  "timestamp": "2025-05-20T00:49:16.201276+00:00",
   "repo": "ietf-wg-dult/accessory-protocol",
   "labels": [
     {
@@ -566,6 +566,58 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 21,
+      "id": "PR_kwDOM86dss6WwPvm",
+      "title": "Corbin's test",
+      "url": "https://github.com/ietf-wg-dult/accessory-protocol/pull/21",
+      "state": "OPEN",
+      "author": "cstapl",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Trying out to confirm it works",
+      "createdAt": "2025-05-19T16:25:09Z",
+      "updatedAt": "2025-05-19T16:25:10Z",
+      "baseRepository": "ietf-wg-dult/accessory-protocol",
+      "baseRefName": "main",
+      "baseRefOid": "d579f69dfbf2a63942b28964aa1d67773a51dfb0",
+      "headRepository": "ietf-wg-dult/accessory-protocol",
+      "headRefName": "cstapl-patch-1",
+      "headRefOid": "8a9e30fd6cd8d433f28bb62701173af3a341cb67",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 22,
+      "id": "PR_kwDOM86dss6WwnOk",
+      "title": "Serial number identification proposal",
+      "url": "https://github.com/ietf-wg-dult/accessory-protocol/pull/22",
+      "state": "OPEN",
+      "author": "cstapl",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Proposing change to correct Issue #17  related to number & letter ambiguity",
+      "createdAt": "2025-05-19T17:08:42Z",
+      "updatedAt": "2025-05-19T17:08:42Z",
+      "baseRepository": "ietf-wg-dult/accessory-protocol",
+      "baseRefName": "main",
+      "baseRefOid": "d579f69dfbf2a63942b28964aa1d67773a51dfb0",
+      "headRepository": "ietf-wg-dult/accessory-protocol",
+      "headRefName": "cstapl-patch-2",
+      "headRefOid": "1636846550dc6e034569c8ed7aa8bcf47282338c",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
