@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-20T00:49:16.201276+00:00",
+  "timestamp": "2025-05-22T00:46:56.421751+00:00",
   "repo": "ietf-wg-dult/accessory-protocol",
   "labels": [
     {
@@ -334,9 +334,31 @@
       "labels": [],
       "body": "Per our discussion at IETF 122, we agreed on the following:\n\n- Tags should have a serial number that is physically printed on the device but hidden from view\n- The tag's serial number should be shown to users when 1) they receive a passive notification, 2) a device shows up on an active scan as a tracker suspected of unwanted location tracking. Users should also be shown obfuscated information about the tag owner, such as the last four digits of the registered phone number or an obfuscated email address.\n- If users want to find out the identity of the tag owner, they need to do so through law enforcement, and this will not be considered in scope for the document per the WG charter: \"The WG will not define requirements for interactions between accessory manufacturers and law enforcement.\"\n\nSee [related issue](https://github.com/ietf-wg-dult/threat-model/issues/90) on the threat model document page.\n\nHere are some updates that I think are required for this document to address that understanding:\n\n1. Requiring the use of serial number identification (as opposed to other privacy preserving methods) <- we didn't discuss this explicitly, so let's discuss if you think this is too constraining\n2. Requiring that the serial number be easily accessible but hidden (just minor language updates)\n3. We might want to relax the availability for law enforcement section. Right now it says that \"Available ownership registry information SHOULD be produced in response to a valid law enforcement request.\" We should probably change this to MAY to avoid seeming like we are specifying how law enforcement should be interfaced with.\n\nI think the other stuff has been accounted for, aside from active scanning, which isn't in the document at all right now (and might belong elsewhere anyway) so that is a separate issue.\n\nHappy to start on a PR for this if the changes proposed are friendly.\n\n",
       "createdAt": "2025-04-11T19:53:49Z",
-      "updatedAt": "2025-04-11T19:53:49Z",
+      "updatedAt": "2025-05-21T22:18:00Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "siddikaparlak",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thanks Maggie. I had put together a summary for this also under the original issue [issue#2](https://github.com/ietf-wg-dult/accessory-protocol/issues/2). Please take a look. Regarding the updates you propose above:\n\n1. I think we should not require this because of the reasons mentioned in [issue#2](https://github.com/ietf-wg-dult/accessory-protocol/issues/2).\n2. We may add this language as \"recommended\"\n3. Feels like this can stay as is. It mentions the owner information must be provided but does not require specifying \"how\". ",
+          "createdAt": "2025-05-21T03:36:23Z",
+          "updatedAt": "2025-05-21T03:36:23Z"
+        },
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "NONE",
+          "body": "Thanks Siddika! I missed your summary on the other issue. \n\nI think updating language to add recommendations that the serial number be hidden makes sense (and not addressing 1/3 is fine).",
+          "createdAt": "2025-05-21T15:38:00Z",
+          "updatedAt": "2025-05-21T15:38:00Z"
+        },
+        {
+          "author": "siddikaparlak",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Sg. Will send a PR your way.",
+          "createdAt": "2025-05-21T22:17:59Z",
+          "updatedAt": "2025-05-21T22:17:59Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -539,7 +561,7 @@
       "labels": [],
       "body": "",
       "createdAt": "2025-05-15T22:55:30Z",
-      "updatedAt": "2025-05-16T15:48:36Z",
+      "updatedAt": "2025-05-21T23:17:56Z",
       "baseRepository": "ietf-wg-dult/accessory-protocol",
       "baseRefName": "main",
       "baseRefOid": "d579f69dfbf2a63942b28964aa1d67773a51dfb0",
@@ -550,7 +572,29 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "NONE",
+          "body": "I agree. \r\n\r\nRegarding re-enabling:\r\n- if this is done physically, the platform should include instructions on how to re-enable (e.g. put the battery back in).\r\n- If this is done remotely, other instructions would be needed.\r\n\r\nThere might also need to be some way to handle false positives at the manufacturer/platform level. So for example if someone detects my tag because it's in the luggage hold and it pairs to their phone and not mine. I don't want a user to be able to just turn off the tags for all the users in the luggage storage. If this happens once off maybe there should be some way to override it? Is there a way to get the location of an owner not using the crowdsourced network or some other way to address this like geolocation or altitude or speed traveled? ",
+          "createdAt": "2025-05-20T19:03:39Z",
+          "updatedAt": "2025-05-20T19:03:39Z"
+        },
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "NONE",
+          "body": "Thinking about this again, maybe it makes sense for there to be a longer window of time required for remote disablement to be possible (e.g. 24 hrs) to avoid the benign cases like air travel but catch the tracker-hidden-in-car-seat type scenario.",
+          "createdAt": "2025-05-21T19:47:05Z",
+          "updatedAt": "2025-05-21T19:47:05Z"
+        },
+        {
+          "author": "siddikaparlak",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Thank you both. I think it is hard to specify all the requirements in one PR so I wanted the start with relaxing the existing language a bit. I can merge this unless you see a problem with this PR only. Happy to merge later also once we know a bit more.",
+          "createdAt": "2025-05-21T23:17:56Z",
+          "updatedAt": "2025-05-21T23:17:56Z"
+        }
+      ],
       "reviews": [
         {
           "id": "PRR_kwDOM86dss6psirg",
