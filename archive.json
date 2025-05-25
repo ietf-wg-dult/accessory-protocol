@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-22T00:46:56.421751+00:00",
+  "timestamp": "2025-05-25T00:53:15.786210+00:00",
   "repo": "ietf-wg-dult/accessory-protocol",
   "labels": [
     {
@@ -189,9 +189,17 @@
       "labels": [],
       "body": "It might be a good idea to use a consistent terminology across all documents under DULT WG. This can perhaps be a standalone document.",
       "createdAt": "2024-10-09T21:17:35Z",
-      "updatedAt": "2024-10-09T21:17:35Z",
+      "updatedAt": "2025-05-22T18:20:37Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "NONE",
+          "body": "Hi Siddika,\n\nI agree this would be a good idea to get in place for our next meeting. I made a first attempt at a draft PR for this here: https://github.com/ietf-wg-dult/threat-model/pull/102\n\nPlease share your feedback on what makes sense!",
+          "createdAt": "2025-05-22T18:20:27Z",
+          "updatedAt": "2025-05-22T18:20:36Z"
+        }
+      ]
     },
     {
       "number": 9,
@@ -359,6 +367,22 @@
           "updatedAt": "2025-05-21T22:17:59Z"
         }
       ]
+    },
+    {
+      "number": 23,
+      "id": "I_kwDOM86dss64BWAu",
+      "title": "Future technologies for finding",
+      "url": "https://github.com/ietf-wg-dult/accessory-protocol/issues/23",
+      "state": "OPEN",
+      "author": "maggiedelano",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Related to our discussions about remote disablement (see #20, #14): in the [future hardware](https://github.com/ietf-wg-dult/accessory-protocol/blob/main/draft-ietf-dult-accessory-protocol.md#future-hardware) section, the document states that: \"Future technologies for finding MAY be considered in revisions of this document.\" Should ultra-wideband be required to facilitate finding? If devices are easier to find it would relax the need for short term remote disablement. However, if this technology doesn't work sufficiently well in practice it may not be appropriate to require it.",
+      "createdAt": "2025-05-23T19:37:41Z",
+      "updatedAt": "2025-05-23T19:37:41Z",
+      "closedAt": null,
+      "comments": []
     }
   ],
   "pulls": [
