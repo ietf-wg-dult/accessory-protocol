@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-05-25T00:53:15.786210+00:00",
+  "timestamp": "2025-06-05T00:48:24.822970+00:00",
   "repo": "ietf-wg-dult/accessory-protocol",
   "labels": [
     {
@@ -284,7 +284,7 @@
       "labels": [],
       "body": "There might be situations where the tracker is very well hidden and potentially its speaker is removed. In this scenario, despite receiving multiple alerts on their phone, the victim cannot locate the tag and disable it. Should the accessory protocol allow remote disablement of trackers and include recommendations/requirements about it? ",
       "createdAt": "2025-02-27T22:19:29Z",
-      "updatedAt": "2025-03-20T09:00:01Z",
+      "updatedAt": "2025-06-04T15:44:31Z",
       "closedAt": null,
       "comments": [
         {
@@ -293,6 +293,20 @@
           "body": "I think this is a reasonable thing to consider. IMO the place to start here is with trying to lay out the conditions under which we would allow remote disablement. For instance, it's an obvious problem if I can disable every tracker around me regardless of whether it's in separated mode or not.",
           "createdAt": "2025-03-20T09:00:00Z",
           "updatedAt": "2025-03-20T09:00:00Z"
+        },
+        {
+          "author": "cstapl",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Would also want to consider the level of certainty that the tracker is actually being misused, vs a tracker separated from its owner on a city bus (e.g. a person borrowed their partner's keys that day). ",
+          "createdAt": "2025-06-03T14:47:34Z",
+          "updatedAt": "2025-06-03T14:47:34Z"
+        },
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "NONE",
+          "body": "I think this could be a way to address that, but we will need more work on the finding algorithm implementation to hammer out the details (there will be a whole separate document about that). We have a PR on the threat model document that has some suggestions though: https://github.com/ietf-wg-dult/threat-model/pull/112/files",
+          "createdAt": "2025-06-04T15:44:30Z",
+          "updatedAt": "2025-06-04T15:44:30Z"
         }
       ]
     },
@@ -380,9 +394,17 @@
       "labels": [],
       "body": "Related to our discussions about remote disablement (see #20, #14): in the [future hardware](https://github.com/ietf-wg-dult/accessory-protocol/blob/main/draft-ietf-dult-accessory-protocol.md#future-hardware) section, the document states that: \"Future technologies for finding MAY be considered in revisions of this document.\" Should ultra-wideband be required to facilitate finding? If devices are easier to find it would relax the need for short term remote disablement. However, if this technology doesn't work sufficiently well in practice it may not be appropriate to require it.",
       "createdAt": "2025-05-23T19:37:41Z",
-      "updatedAt": "2025-05-23T19:37:41Z",
+      "updatedAt": "2025-06-03T14:45:16Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "cstapl",
+          "authorAssociation": "COLLABORATOR",
+          "body": "Perhaps it would be good to change it to a shall, with context along the lines of: \"Future technologies for finding SHALL be considered in revisions of the document if they meet _xyz bar set by this group._ ",
+          "createdAt": "2025-06-03T14:45:15Z",
+          "updatedAt": "2025-06-03T14:45:15Z"
+        }
+      ]
     }
   ],
   "pulls": [
