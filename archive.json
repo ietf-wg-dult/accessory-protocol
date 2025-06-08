@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-05T00:48:24.822970+00:00",
+  "timestamp": "2025-06-08T00:54:08.348128+00:00",
   "repo": "ietf-wg-dult/accessory-protocol",
   "labels": [
     {
@@ -62,9 +62,17 @@
       "labels": [],
       "body": "Copied this over from: https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/173\r\n\r\n@cstapl:\r\n\r\nRe: 3.15.2\r\n\r\nIn circumstances that indicate someone is possibly concerned the accessory has been used for unwanted tracking, e.g. upon NFC tap or other owner lookup that indicates the victim has physical access to the accessory (like a button push), we should consider extending the duration of the owner registry storage so that the victim has enough time to engage with the systems required to secure the owner information, e.g. law enforcement and the courts. This is another topic that is important to engage with victim advocacy groups on, for their expertise.",
       "createdAt": "2024-10-09T02:49:55Z",
-      "updatedAt": "2024-10-09T02:49:55Z",
+      "updatedAt": "2025-06-05T15:33:14Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "NONE",
+          "body": "Looking at the document, it says a minimum of 25 days. Is this enough time @cstapl?\n\n> The owner registry SHOULD be stored for a minimum of 25 days after an owner has unassociated an accessory. After the elapsed period, the data SHOULD be deleted.",
+          "createdAt": "2025-06-05T15:33:13Z",
+          "updatedAt": "2025-06-05T15:33:13Z"
+        }
+      ]
     },
     {
       "number": 2,
@@ -109,9 +117,17 @@
       "labels": [],
       "body": "Copied this over from: https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/28\r\n\r\n@siddikaparlak: \r\n\r\nFrom: [phil@aukilabs.com](mailto:phil@aukilabs.com)\r\nTo: authors of draft-detecting-unwanted-location-trackers, [nils@aukilabs.com](mailto:nils@aukilabs.com)\r\nOn: June 7, 2023\r\n\r\nThe proposal for Registration Data depends on honesty. In section 3.15. Pairing registry, how would the registry data be validated (prepaid SIM, gmail address)? Who would be responsible for managing the personal data with respect to GDPR? While many countries now require formal identification, many do not, leaving the ability to register anonymously available. Recording the IMEI of the owner's device could be valid too. Logging biometric data during registration, possibly with a government-issued identification document could also be considered.\r\n\r\n@bledvina:\r\n\r\nFor the current internet draft the validation of the pairing data would be up to the party doing the accessory pairing.\r\n\r\nThis topic will likely be revisited as part of the IETF DULT WG, so tagging this with the appropriate label\r\n",
       "createdAt": "2024-10-09T02:53:46Z",
-      "updatedAt": "2024-10-09T02:53:46Z",
+      "updatedAt": "2025-06-05T15:47:45Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "NONE",
+          "body": "Here's some snippets about what the document says on this right now:\n\n> Verifiable identity information of the owner of an accessory at time of association SHALL be recorded and associated with the identifier of the accessory, e.g., phone number, email address.\n\n> Availability for law enforcement\nAvailable ownership registry information SHOULD be produced in response to a valid law enforcement request seeking information related to the misuse of location-tracking accessories provided that the request is submitted pursuant to defined procedures for obtaining such information. Network providers SHOULD define their own procedures for submission of valid legal requests from law enforcement.\n\nIt is not clear to me what \"verifiable\" means, so that should probably be clarified. I interpret it to mean that the email/phone number would get sent a one-time code to confirm that the accessory owner has access to that account/number. However, as Phil pointed out above, this is not the same thing as confirming the identity of the accessory owner.\n\nThat said, I don't think we as a WG can prescribe exactly _how_ to verify that the accessory owner is who they say they are due to differences in geography (as Phil also stated), but we might be able to decide on certain standards for verification. I can't think of a great way to accomplish this though because I am concerned about compromising the privacy of accessory owners by e.g. requiring government-issued identification. Curious to hear what @cstapl thinks about how to balance the privacy of different parties here.",
+          "createdAt": "2025-06-05T15:47:43Z",
+          "updatedAt": "2025-06-05T15:47:43Z"
+        }
+      ]
     },
     {
       "number": 4,
@@ -125,9 +141,17 @@
       "labels": [],
       "body": "Copied over from: https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/13. \r\n\r\nPlease see discussion there",
       "createdAt": "2024-10-09T02:55:16Z",
-      "updatedAt": "2024-10-09T02:55:17Z",
+      "updatedAt": "2025-06-05T15:53:14Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "NONE",
+          "body": "I think there was discussion on the mailing list about this and we came down on something [like this](https://mailarchive.ietf.org/arch/msg/unwanted-trackers/NoeP0hUr9zlFe17cuY9xACTb8ss/):\n\n> All firmware images MUST be authenticated via a mechanism that\n   guarantees the integrity of the image from the\n   manufacturer. Accessories MUST verify the integrity and\n   origin of firmware before installing it and MUST NOT allow\n   users to override those integrity checks.\n\nThreat for this in the threat model document can be found [here](https://ietf-wg-dult.github.io/threat-model/draft-ietf-dult-threat-model.html#name-accessory-firmware-modifica).",
+          "createdAt": "2025-06-05T15:53:13Z",
+          "updatedAt": "2025-06-05T15:53:13Z"
+        }
+      ]
     },
     {
       "number": 5,
@@ -141,9 +165,17 @@
       "labels": [],
       "body": "Copied over from: https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/21\r\n\r\nPlease see discussion there",
       "createdAt": "2024-10-09T02:55:55Z",
-      "updatedAt": "2024-10-09T02:55:55Z",
+      "updatedAt": "2025-06-05T15:56:23Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "NONE",
+          "body": "Looking at this now, I don't see the harm in adding an additional item to the category values. Here's the link to that [table](https://github.com/ietf-wg-dult/accessory-protocol/blob/main/draft-ietf-dult-accessory-protocol.md#accessory-category-value).",
+          "createdAt": "2025-06-05T15:56:22Z",
+          "updatedAt": "2025-06-05T15:56:22Z"
+        }
+      ]
     },
     {
       "number": 6,
@@ -157,9 +189,17 @@
       "labels": [],
       "body": "Copied over from: https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/6\r\n\r\nPlease see discussion there",
       "createdAt": "2024-10-09T02:56:39Z",
-      "updatedAt": "2024-10-09T02:56:39Z",
+      "updatedAt": "2025-06-05T15:12:00Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "NONE",
+          "body": "The threat model document now has a dedicated section to attacks on the DULT protocol. See in particular [3.3.5.  Physically Modifying Tags](https://ietf-wg-dult.github.io/threat-model/draft-ietf-dult-threat-model.html#name-physically-modifying-tags), [3.3.7.  Attacker Accessory Disablement](https://ietf-wg-dult.github.io/threat-model/draft-ietf-dult-threat-model.html#name-attacker-accessory-disablem), [3.3.8.  Disabling Victim Tag Detection](https://ietf-wg-dult.github.io/threat-model/draft-ietf-dult-threat-model.html#name-disabling-victim-tag-detect), [3.3.9.  Disabling Victim Tag](https://ietf-wg-dult.github.io/threat-model/draft-ietf-dult-threat-model.html#name-disabling-victim-tag). The next steps will be in assessing how the accessory protocol document and other related documents (attempt to) mitigate the attacks listed in that section.",
+          "createdAt": "2025-06-05T15:11:59Z",
+          "updatedAt": "2025-06-05T15:11:59Z"
+        }
+      ]
     },
     {
       "number": 7,
@@ -173,9 +213,17 @@
       "labels": [],
       "body": "Copied over from: https://github.com/bdetwiler/draft-detecting-unwanted-location-trackers/issues/29\r\n\r\n@siddikaparlak:\r\n\r\nFrom: [phil@aukilabs.com](mailto:phil@aukilabs.com)\r\nTo: authors of draft-detecting-unwanted-location-trackers, [nils@aukilabs.com](mailto:nils@aukilabs.com)\r\nOn: June 7, 2023\r\n\r\nSection 5. Firmware updates allow the user to update the accessory. How will customised firmware be prevented from being uploaded? Secure methods for software signing would need to be part of the technical requirements manufacturers would need to conform to.\r\n\r\n@bledvina:\r\n\r\nThis is something the IETF WG will take up as part of the follow-on effort.\r\n",
       "createdAt": "2024-10-09T02:57:47Z",
-      "updatedAt": "2024-10-09T02:58:47Z",
+      "updatedAt": "2025-06-05T15:56:59Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "maggiedelano",
+          "authorAssociation": "NONE",
+          "body": "See also discussion in #4.",
+          "createdAt": "2025-06-05T15:56:58Z",
+          "updatedAt": "2025-06-05T15:56:58Z"
+        }
+      ]
     },
     {
       "number": 8,
@@ -284,7 +332,7 @@
       "labels": [],
       "body": "There might be situations where the tracker is very well hidden and potentially its speaker is removed. In this scenario, despite receiving multiple alerts on their phone, the victim cannot locate the tag and disable it. Should the accessory protocol allow remote disablement of trackers and include recommendations/requirements about it? ",
       "createdAt": "2025-02-27T22:19:29Z",
-      "updatedAt": "2025-06-04T15:44:31Z",
+      "updatedAt": "2025-06-07T03:02:12Z",
       "closedAt": null,
       "comments": [
         {
@@ -307,6 +355,13 @@
           "body": "I think this could be a way to address that, but we will need more work on the finding algorithm implementation to hammer out the details (there will be a whole separate document about that). We have a PR on the threat model document that has some suggestions though: https://github.com/ietf-wg-dult/threat-model/pull/112/files",
           "createdAt": "2025-06-04T15:44:30Z",
           "updatedAt": "2025-06-04T15:44:30Z"
+        },
+        {
+          "author": "zoracon",
+          "authorAssociation": "NONE",
+          "body": "Looking specifically at the remote disablement conversation from the recent interim meeting.\n\n- In scenarios where a thief steals and disables an airtag - my main understanding that these tags aren't created to _prevent theft_ or help you **recover stolen items**. But to _recover lost items_. \n\nI also want to push the tenant of \"knowledge of the tracker\".\n- Stalkers know the tracker exists because they planted it\n- But thieves, having already acquired the item they want to steal, will have physical access to the tracker already. So remote disablement only seems to apply if they are aware the tracker exists and _not know where it is on the stolen item_.\n\nI don't mind discussing criteria of what remote disablement looks like. But wanted to place these thoughts down for the sake of scope.",
+          "createdAt": "2025-06-07T02:52:07Z",
+          "updatedAt": "2025-06-07T03:02:12Z"
         }
       ]
     },
