@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-06-15T00:54:51.212472+00:00",
+  "timestamp": "2025-08-14T00:50:36.348750+00:00",
   "repo": "ietf-wg-dult/accessory-protocol",
   "labels": [
     {
@@ -776,7 +776,7 @@
       "labels": [],
       "body": "Includes existing terms and additional terms relevant for all documents. ",
       "createdAt": "2025-06-12T19:52:30Z",
-      "updatedAt": "2025-06-12T19:52:31Z",
+      "updatedAt": "2025-08-12T20:01:43Z",
       "baseRepository": "ietf-wg-dult/accessory-protocol",
       "baseRefName": "main",
       "baseRefOid": "d579f69dfbf2a63942b28964aa1d67773a51dfb0",
@@ -788,7 +788,28 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDOM86dss65hkue",
+          "commit": {
+            "abbreviatedOid": "1523cb8"
+          },
+          "author": "mcr",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-08-12T20:01:43Z",
+          "updatedAt": "2025-08-12T20:01:43Z",
+          "comments": [
+            {
+              "originalPosition": 20,
+              "body": "```suggestion\r\nAccessory:\r\n: refers to any product intended to interface with a platform through the means described in these documents.\r\n```",
+              "createdAt": "2025-08-12T20:01:43Z",
+              "updatedAt": "2025-08-12T20:01:43Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
