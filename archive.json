@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-08-14T00:50:36.348750+00:00",
+  "timestamp": "2025-08-17T00:54:21.991310+00:00",
   "repo": "ietf-wg-dult/accessory-protocol",
   "labels": [
     {
@@ -776,7 +776,7 @@
       "labels": [],
       "body": "Includes existing terms and additional terms relevant for all documents. ",
       "createdAt": "2025-06-12T19:52:30Z",
-      "updatedAt": "2025-08-12T20:01:43Z",
+      "updatedAt": "2025-08-14T20:28:45Z",
       "baseRepository": "ietf-wg-dult/accessory-protocol",
       "baseRefName": "main",
       "baseRefOid": "d579f69dfbf2a63942b28964aa1d67773a51dfb0",
@@ -806,6 +806,26 @@
               "body": "```suggestion\r\nAccessory:\r\n: refers to any product intended to interface with a platform through the means described in these documents.\r\n```",
               "createdAt": "2025-08-12T20:01:43Z",
               "updatedAt": "2025-08-12T20:01:43Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOM86dss66Fn20",
+          "commit": {
+            "abbreviatedOid": "1523cb8"
+          },
+          "author": "maggiedelano",
+          "authorAssociation": "NONE",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-08-14T20:28:44Z",
+          "updatedAt": "2025-08-14T20:28:45Z",
+          "comments": [
+            {
+              "originalPosition": 20,
+              "body": "Elaboration on this from the mailing list:\r\n\r\n> I did one change (as a suggestion) to go with a tagged list using the\r\n> kramdown : notation, which results in:\r\n> \r\n> Foo: the foo is able to leap tall buildings\r\n> \r\n> Many documents decide to Capitalize all locally defined terms, as if they\r\n> were Proper Nouns.  It's up to the authors, but the RPC supports that use.\r\n> \r\n> Is \"Location Tracking Accessory\" our term for Tag/Tile?  Or is it more general?\r\n> If so, maybe to obtuse, and we should bike-shed it.",
+              "createdAt": "2025-08-14T20:28:44Z",
+              "updatedAt": "2025-08-14T20:28:45Z"
             }
           ]
         }
