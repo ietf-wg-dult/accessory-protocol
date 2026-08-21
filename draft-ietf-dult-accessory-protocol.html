@@ -12,25 +12,25 @@
 <meta content="
        This document lists a set of best practices and protocols for accessory manufacturers whose products have built-in location-tracking capabilities. By following these requirements and recommendations, a location-tracking accessory will be compatible with unwanted tracking detection and alerts on mobile platforms. This is an important capability for improving the privacy and safety of individuals in the circumstance that those accessories are used to track their location without their knowledge or consent. 
     " name="description">
-<meta content="xml2rfc 3.28.0" name="generator">
+<meta content="xml2rfc 3.34.0" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="detecting unwanted location trackers" name="keyword">
 <meta content="accessory protocol" name="keyword">
 <meta content="draft-ietf-dult-accessory-protocol-latest" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.28.0
-    Python 3.12.9
-    ConfigArgParse 1.7
+  xml2rfc 3.34.0
+    Python 3.14.7
+    ConfigArgParse 1.7.5
     google-i18n-address 3.1.1
-    intervaltree 3.1.0
-    Jinja2 3.1.5
-    lxml 5.3.0
-    platformdirs 4.3.6
+    intervaltree 3.2.1
+    Jinja2 3.1.6
+    lxml 6.1.1
+    natsort 8.4.0
+    platformdirs 4.11.3
     pycountry 24.6.1
-    PyYAML 6.0.2
-    requests 2.32.3
-    setuptools 70.3.0
-    wcwidth 0.2.13
+    PyYAML 6.0.3
+    requests 2.33.1
+    wcwidth 0.8.2
 -->
 <link href="draft-ietf-dult-accessory-protocol.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -66,7 +66,6 @@
   src: local('Lora Italic'), local('Lora-Italic'), url('https://martinthomson.github.io/rfc-css/fonts/lora-italic-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
-
 @font-face {
   font-family: 'Lora';
   font-style: italic;
@@ -115,7 +114,6 @@
   src: local('Lora Regular'), local('Lora-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/lora-regular-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
-
 @font-face {
   font-family: 'Lora';
   font-style: normal;
@@ -171,7 +169,7 @@
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
   font-family: 'Oxygen Mono';
@@ -179,7 +177,7 @@
   font-weight: 400;
   font-display: swap;
   src: local('Oxygen Mono'), local('OxygenMono-Regular'), url('https://martinthomson.github.io/rfc-css/fonts/oxygenmono-regular-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
@@ -296,16 +294,19 @@ h1, h2, h3, h4, h5, h6 {
   font-size-adjust: 0.5;
   color: var(--title-color);
 }
-h1#title {
-  font-size: 32px;
-  line-height: 40px;
-  clear: both;
-}
-h1#title, h1#rfcnum {
-  margin: 1.5em 0 0.2em;
-}
-h1#rfcnum + h1#title {
-  margin: 0.2em 0;
+h1 {
+  &#title {
+    font-size: 32px;
+    line-height: 40px;
+    clear: both;
+    margin: 1.5em 0 0.2em;
+  }
+  &#rfcnum {
+    margin: 1.5em 0 0.2em;
+    & + h1#title {
+      margin: 0.2em 0;
+    }
+  }
 }
 
 h1, h2, h3 {
@@ -325,10 +326,10 @@ h4, h5, h6 {
 #abstract+p {
   font-size: 18px;
   line-height: 24px;
-}
-#abstract+p code, #abstract+p samp, #abstract+p tt {
-  font-size: 16px;
-  line-height: 0;
+  & code, & samp, & tt {
+    font-size: 16px;
+    line-height: 0;
+  }
 }
 
 p {
@@ -339,59 +340,59 @@ p {
 div {
   margin: 0;
 }
-.alignRight.art-text {
-  background-color: var(--highlight-color);
-  border: 1px solid var(--line-color);
-  border-radius: 3px;
-  padding: 0.5em 1em 0;
-  margin-bottom: 0.5em;
-}
-.alignRight.art-text pre {
-  padding: 0;
-  width: auto;
-}
 .alignRight {
   margin: 1em 0;
-}
-.alignRight > *:first-child {
-  border: none;
-  margin: 0;
-  float: right;
-  clear: both;
-}
-.alignRight > *:nth-child(2) {
-  clear: both;
-  display: block;
-  border: none;
+  &.art-text {
+    background-color: var(--highlight-color);
+    border: 1px solid var(--line-color);
+    border-radius: 3px;
+    padding: 0.5em 1em 0;
+    margin-bottom: 0.5em;
+    & pre {
+      padding: 0;
+      width: auto;
+    }
+  }
+  & > *:first-child {
+    border: none;
+    margin: 0;
+    float: right;
+    clear: both;
+  }
+  & > *:nth-child(2) {
+    clear: both;
+    display: block;
+    border: none;
+  }
 }
 svg {
   display: block;
-}
-/* font-family isn't space-separated, but =~ will have to do */
-svg[font-family~="monospace" i], svg [font-family~="monospace" i] {
-  font-family: var(--font-mono);
-}
-.alignCenter.art-text {
-  background-color: var(--highlight-color);
-  border: 1px solid var(--line-color);
-  border-radius: 3px;
-  padding: 0.5em 1em 0;
-  margin-bottom: 0.5em;
-}
-.alignCenter.art-text pre {
-  padding: 0;
-  width: auto;
+  /* font-family isn't space-separated, but =~ will have to do */
+  &[font-family~="monospace" i], & [font-family~="monospace" i] {
+    font-family: var(--font-mono);
+  }
 }
 .alignCenter {
   margin: 1em 0;
-}
-.alignCenter > *:first-child {
-  border: none;
-  /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
-     support flexbox yet.
-  */
-  display: table;
-  margin: 0 auto;
+  &.art-text {
+    background-color: var(--highlight-color);
+    border: 1px solid var(--line-color);
+    border-radius: 3px;
+    padding: 0.5em 1em 0;
+    margin-bottom: 0.5em;
+    & pre {
+      padding: 0;
+      width: auto;
+    }
+  }
+  & > *:first-child {
+    border: none;
+    /* this isn't optimal, but it's an existence proof.  PrinceXML doesn't
+       support flexbox yet.
+    */
+    display: table;
+    margin: 0 auto;
+  }
 }
 
 /* lists */
@@ -429,26 +430,25 @@ dl {
     --indent: 5ch;
     & > dt {
       min-width: calc(var(--indent) - 2ch);
+      float: none;
     }
-  }
-  &.olPercent > dt {
-    float: none;
   }
 
   dl > dd > & {
     margin-top: 0.5em;
     margin-bottom: 0;
   }
-}
-dl:not(.dlNewline) > dt {
-  float: left;
-  margin-right: 2ch;
-  min-width: 8ch;
-}
-dl > dd {
-  margin-bottom: .8em;
-  margin-left: var(--indent) !important; /* stupid element overrides */
-  min-height: 2ex;
+
+  &:not(.dlNewline) > dt {
+    float: left;
+    margin-right: 2ch;
+    min-width: 8ch;
+  }
+  & > dd {
+    margin-bottom: .8em;
+    margin-left: var(--indent) !important; /* stupid element overrides */
+    min-height: 2ex;
+  }
 }
 :is(dl.compact, .dlCompact) > dd {
   margin-bottom: 0;
@@ -464,20 +464,22 @@ dl > dd {
 }
 
 /* links */
-a, a[href].selfRef:hover {
+a {
   text-decoration: none;
+  &[href] {
+    color: var(--link-color);
+    &:hover { text-decoration: underline; }
+    &.selfRef {
+      color: var(--text-color);
+      &:hover {
+        text-decoration: none;
+        background-color: var(--highlight-color);
+      }
+    }
+  }
 }
-a[href] {
-  color: var(--link-color);
-}
-a[href].selfRef, .iref + a[href].internal {
+.iref + a[href].internal {
   color: var(--text-color);
-}
-a[href]:hover {
-  text-decoration: underline;
-}
-a[href].selfRef:hover {
-  background-color: var(--highlight-color);
 }
 a.xref:is(.cite, .auto), :is(#status-of-memo, #copyright) a {
   white-space: nowrap;
@@ -513,9 +515,9 @@ img {
 figure {
   margin: 0.5em 0;
   padding: 0;
-}
-figure blockquote {
-  margin: 0.8em 0.4em 0.4em;
+  & blockquote {
+    margin: 0.8em 0.4em 0.4em;
+  }
 }
 figcaption, caption {
   font-style: italic;
@@ -525,17 +527,19 @@ figcaption, caption {
 }
 @media screen {
   /* Auto-collapse boilerplate. */
-  :is(#status-of-memo, #copyright) p {
-    margin: -2px 0;
-    max-height: 0;
-    transition: max-height 2s ease, margin 0.5s ease 0.5s;
-    overflow: hidden;
-  }
-  :is(#status-of-memo, #copyright):hover p,
-  :is(#status-of-memo, #copyright) h2:target ~ p {
-    margin: 0.5em 0;
-    max-height: 500px;
-    overflow: auto;
+  :is(#status-of-memo, #copyright) {
+    & p {
+      margin: -2px 0;
+      max-height: 0;
+      transition: max-height 2s ease, margin 0.5s ease 0.5s;
+      overflow: hidden;
+    }
+    &:hover p,
+    & h2:target ~ p {
+      margin: 0.5em 0;
+      max-height: 500px;
+      overflow: auto;
+    }
   }
   pre, svg {
     display: inline-block;
@@ -571,6 +575,7 @@ aside, blockquote {
 }
 blockquote {
   margin: 1em 0;
+  border-left: 2px var(--pilcrow-strong) solid;
 }
 cite {
   display: block;
@@ -584,25 +589,17 @@ table {
   max-width: 100%;
   margin: 0 0 1em;
   border-collapse: collapse;
-}
-table.right {
-  margin-left: auto;
-}
-table.center {
-  margin-left: auto;
-  margin-right: auto;
-}
-table.left {
-  margin-right: auto;
-}
-table .text-left {
-  text-align: left;
-}
-table .text-center {
-  text-align: center;
-}
-table .text-right {
-  text-align: right;
+  &.right { margin-left: auto; }
+  &.center { margin-left: auto; margin-right: auto; }
+  &.left { margin-right: auto; }
+  & .text-left { text-align: left; }
+  & .text-center { text-align: center; }
+  & .text-right { text-align: right; }
+  & caption {
+    margin: 0;
+    padding: 3px 0 3px 1em;
+  }
+  & p { margin: 0; }
 }
 
 thead, tbody {
@@ -622,13 +619,6 @@ th {
 :is(tr:nth-child(2n+1), thead+tbody > tr:nth-child(2n)) > td {
   background-color: var(--highlight-color);
 }
-table caption {
-  margin: 0;
-  padding: 3px 0 3px 1em;
-}
-table p {
-  margin: 0;
-}
 
 /* pilcrow */
 a.pilcrow {
@@ -639,18 +629,16 @@ a.pilcrow {
     color: var(--pilcrow-weak);
     &:hover { text-decoration: none; }
   }
-}
-@media not print {
-  :hover > a.pilcrow {
-    opacity: 1;
+  @media not print {
+    :hover > &, &:focus {
+      opacity: 1;
+    }
+    &[href]:hover {
+      color: var(--pilcrow-strong);
+      background-color: transparent;
+    }
   }
-  a.pilcrow[href]:hover {
-    color: var(--pilcrow-strong);
-    background-color: transparent;
-  }
-}
-@media print {
-  a.pilcrow {
+  @media print {
     display: none;
   }
 }
@@ -709,9 +697,9 @@ sub, sup {
   font-size: 0.9em;
   font-style: italic;
   margin-top: 2em;
-}
-.docInfo .prepared {
-  float: right;
+  & .prepared {
+    float: right;
+  }
 }
 
 /* table of contents */
@@ -801,23 +789,27 @@ hr.addr {
   max-width: calc(100% - 16px);
 }
 @media (min-width: 500px) {
-  #authors-addresses > section {
-    column-count: 2;
-    column-gap: 20px;
-  }
-  #authors-addresses > section > h2 {
-    column-span: all;
-  }
-  /* hack for break-inside: avoid-column */
-  #authors-addresses address {
-    display: inline-block;
-    break-inside: avoid-column;
+  #authors-addresses {
+    & > section {
+      column-count: 2;
+      column-gap: 20px;
+    }
+    & > section > h2 {
+      column-span: all;
+    }
+    /* hack for break-inside: avoid-column */
+    & address {
+      display: inline-block;
+      break-inside: avoid-column;
+    }
   }
 }
 
 /* Comments */
-.rfcEditorRemove p:first-of-type {
-  font-style: italic;
+.rfcEditorRemove {
+  & p:first-of-type {
+    font-style: italic;
+  }
 }
 .cref {
   background-color: rgba(249, 232, 105, 0.3);
@@ -828,19 +820,21 @@ hr.addr {
 }
 
 @media screen {
-  #toc nav {
-    font-family: var(--font-title);
-    font-weight: 360;
-    & > ul { margin-bottom: 2em; }
-    & ul {
-      margin: 0 0 0 4px;
-      & :is(p, li) {
-        margin: 2px 0;
+  #toc {
+    & nav {
+      font-family: var(--font-title);
+      font-weight: 360;
+      & > ul { margin-bottom: 2em; }
+      & ul {
+        margin: 0 0 0 4px;
+        & :is(p, li) {
+          margin: 2px 0;
+        }
       }
     }
-  }
-  #toc a.toplink {
-    float: right;
+    & a.toplink {
+      float: right;
+    }
   }
 }
 @media not screen {
@@ -861,54 +855,54 @@ hr.addr {
     margin: 0;
     border-bottom: 1px solid #ccc;
     opacity: 0.6;
-  }
-  #toc h2 {
-    margin: 0;
-    padding: 2px 0 2px 6px;
-    padding-right: 1em;
-    font-size: 18px;
-    line-height: 24px;
-    min-width: 190px;
-    text-align: right;
-    background-color: #444;
-    color: white;
-    cursor: pointer;
-    &::before { /* css hamburger */
-      float: right;
-      position: relative;
-      width: 1em;
-      height: 1px;
-      left: -164px;
-      margin: 8px 0 0 0;
-      background: white none repeat scroll 0 0;
-      box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
-      content: "";
+    & h2 {
+      margin: 0;
+      padding: 2px 0 2px 6px;
+      padding-right: 1em;
+      font-size: 18px;
+      line-height: 24px;
+      min-width: 190px;
+      text-align: right;
+      background-color: #444;
+      color: white;
+      cursor: pointer;
+      &::before { /* css hamburger */
+        float: right;
+        position: relative;
+        width: 1em;
+        height: 1px;
+        left: -164px;
+        margin: 8px 0 0 0;
+        background: white none repeat scroll 0 0;
+        box-shadow: 0 4px 0 0 white, 0 8px 0 0 white;
+        content: "";
+      }
     }
-  }
-  #toc nav {
-    display: none;
-    background-color: var(--background-color);
-    padding: 0.5em 1em 1em;
-    overflow: auto;
-    overscroll-behavior: contain;
-    height: calc(100vh - 48px);
-    border-left: 1px solid #ddd;
-  }
-  #toc.active {
-    opacity: 1;
-    & nav { display: block; }
-  }
-  /* Make the collapsed ToC header render white on gray also when it's a link */
-  #toc h2 a,
-  #toc h2 a:is(:link, :focus, :hover),
-  #toc a.toplink,
-  #toc a.toplink:hover {
-    color: white;
-    background-color: #444;
-    text-decoration: none;
-  }
-  #toc a.toplink {
-    margin: 2px 0.5em 0;
+    & nav {
+      display: none;
+      background-color: var(--background-color);
+      padding: 0.5em 1em 1em;
+      overflow: auto;
+      overscroll-behavior: contain;
+      height: calc(100vh - 48px);
+      border-left: 1px solid #ddd;
+    }
+    &.active {
+      opacity: 1;
+      & nav { display: block; }
+    }
+    /* Make the collapsed ToC header render white on gray also when it's a link */
+    & h2 a,
+    & h2 a:is(:link, :focus, :hover),
+    & a.toplink,
+    & a.toplink:hover {
+      color: white;
+      background-color: #444;
+      text-decoration: none;
+    }
+    & a.toplink {
+      margin: 2px 0.5em 0;
+    }
   }
 }
 
@@ -927,26 +921,26 @@ hr.addr {
     margin: 0;
     padding: 0;
     z-index: 1;
-  }
-  #toc h2 {
-    margin: 0;
-    padding: 0.25em 1em 1em 0;
-  }
-  #toc nav {
-    display: block;
-    height: calc(90vh - 84px);
-    bottom: 0;
-    padding: 0.5em 0 2em;
-    overflow: auto;
-    overscroll-behavior: contain;
-    scrollbar-width: thin;
+    & h2 {
+      margin: 0;
+      padding: 0.25em 1em 1em 0;
+    }
+    & nav {
+      display: block;
+      height: calc(90vh - 84px);
+      bottom: 0;
+      padding: 0.5em 0 2em;
+      overflow: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+    }
+    & a.toplink {
+      margin: 8px 0.5em 0;
+    }
   }
   img { /* future proofing */
     max-width: 100%;
     height: auto;
-  }
-  #toc a.toplink {
-    margin: 8px 0.5em 0;
   }
 }
 
@@ -962,12 +956,13 @@ hr.addr {
   #n-copyright-notice {
     border-bottom: none;
   }
-  #toc, #n-introduction {
-    page-break-before: always;
-  }
   #toc {
+    page-break-before: always;
     border-top: none;
     padding-top: 0;
+  }
+  #n-introduction {
+    page-break-before: always;
   }
   figure, pre, .vcard {
     page-break-inside: avoid;
@@ -1029,17 +1024,19 @@ hr.addr {
 }
 
 /* SVG Trick: a prefix match works because only black and white are allowed */
-svg :is([stroke="black"], [stroke^="#000"]) {
-  stroke: var(--text-color);
-}
-svg :is([stroke="white"], [stroke^="#fff"]) {
-  stroke: var(--background-color);
-}
-svg :is([fill="black"], [fill^="#000"], :not([fill])) {
-  fill: var(--text-color);
-}
-svg :is([fill="white"], [fill^="#fff"]) {
-  fill: var(--background-color);
+svg {
+  & :is([stroke="black"], [stroke^="#000"]) {
+    stroke: var(--text-color);
+  }
+  & :is([stroke="white"], [stroke^="#fff"]) {
+    stroke: var(--background-color);
+  }
+  & :is([fill="black"], [fill^="#000"], :not([fill])) {
+    fill: var(--text-color);
+  }
+  & :is([fill="white"], [fill^="#fff"]) {
+    fill: var(--background-color);
+  }
 }
 </style>
 
@@ -1049,11 +1046,11 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">Detecting Unwanted Location Trackers Acc</td>
-<td class="right">March 2025</td>
+<td class="right">August 2026</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Ledvina, et al.</td>
-<td class="center">Expires 7 September 2025</td>
+<td class="center">Expires 22 February 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1066,12 +1063,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-dult-accessory-protocol-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2025-03-06" class="published">6 March 2025</time>
+<time datetime="2026-08-21" class="published">21 August 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2025-09-07">7 September 2025</time></dd>
+<dd class="expires"><time datetime="2027-02-22">22 February 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1133,7 +1130,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 7 September 2025.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 22 February 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1142,7 +1139,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2025 IETF Trust and the persons identified as the
+            Copyright (c) 2026 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -1362,6 +1359,47 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7">
             <p id="section-toc.1-1.7.1"><a href="#section-7" class="auto internal xref">7</a>.  <a href="#name-onboarding" class="internal xref">Onboarding</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1">
+                <p id="section-toc.1-1.7.2.1.1"><a href="#section-7.1" class="auto internal xref">7.1</a>.  <a href="#name-network-providers" class="internal xref">Network providers</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.1.2.1">
+                    <p id="section-toc.1-1.7.2.1.2.1.1"><a href="#section-7.1.1" class="auto internal xref">7.1.1</a>.  <a href="#name-scope" class="internal xref">Scope</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2">
+                <p id="section-toc.1-1.7.2.2.1"><a href="#section-7.2" class="auto internal xref">7.2</a>.  <a href="#name-accessory-info-specificatio" class="internal xref">Accessory Info Specifications</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2.2.1">
+                    <p id="section-toc.1-1.7.2.2.2.1.1"><a href="#section-7.2.1" class="auto internal xref">7.2.1</a>.  <a href="#name-accessoryinfo-service" class="internal xref">AccessoryInfo Service</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2.2.2">
+                    <p id="section-toc.1-1.7.2.2.2.2.1"><a href="#section-7.2.2" class="auto internal xref">7.2.2</a>.  <a href="#name-accessoryinfo-url" class="internal xref">AccessoryInfo URL</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2.2.3">
+                    <p id="section-toc.1-1.7.2.2.2.3.1"><a href="#section-7.2.3" class="auto internal xref">7.2.3</a>.  <a href="#name-accessoryinfo-request" class="internal xref">AccessoryInfo Request</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2.2.4">
+                    <p id="section-toc.1-1.7.2.2.2.4.1"><a href="#section-7.2.4" class="auto internal xref">7.2.4</a>.  <a href="#name-accessoryinfo-response" class="internal xref">AccessoryInfo Response</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2.2.5">
+                    <p id="section-toc.1-1.7.2.2.2.5.1"><a href="#section-7.2.5" class="auto internal xref">7.2.5</a>.  <a href="#name-response-format-json-fields" class="internal xref">Response Format (JSON Fields)</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.2.2.6">
+                    <p id="section-toc.1-1.7.2.2.2.6.1"><a href="#section-7.2.6" class="auto internal xref">7.2.6</a>.  <a href="#name-asset-specifications" class="internal xref">Asset Specifications</a></p>
+</li>
+                </ul>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.3">
+                <p id="section-toc.1-1.7.2.3.1"><a href="#section-7.3" class="auto internal xref">7.3</a>.  <a href="#name-identifier-look-up-webpage" class="internal xref">Identifier Look-up Webpage</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.7.2.3.2.1">
+                    <p id="section-toc.1-1.7.2.3.2.1.1"><a href="#section-7.3.1" class="auto internal xref">7.3.1</a>.  <a href="#name-url-format-and-query-params" class="internal xref">URL Format and Query Params</a></p>
+</li>
+                </ul>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.8">
             <p id="section-toc.1-1.8.1"><a href="#section-8" class="auto internal xref">8</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
@@ -3465,6 +3503,692 @@ If none of the accessory categories provided in <a href="#_table-accessory-categ
 </li>
       </ul>
 <p id="section-7-4">TODO<a href="#section-7-4" class="pilcrow">¶</a></p>
+<div id="network-providers">
+<section id="section-7.1">
+        <h3 id="name-network-providers">
+<a href="#section-7.1" class="section-number selfRef">7.1. </a><a href="#name-network-providers" class="section-name selfRef">Network providers</a>
+        </h3>
+<p id="section-7.1-1">Companies that have their own accessory-locating networks will need to create infrastructure to support the scaled retrieval of disablement instructions and product images.<a href="#section-7.1-1" class="pilcrow">¶</a></p>
+<p id="section-7.1-2">This section defines the <strong>Accessory Network Protocol specification</strong>, outlining the communication contract with a network provider. When a client platform detects an unwanted tracking accessory, it sends a network request to the respective network provider's service to retrieve the information needed to display an unwanted tracking alert to the user. The service response returns accessory metadata, capability descriptors, localized user-facing strings, and asset URLs required to render the UT alert and associated informational screens.<a href="#section-7.1-2" class="pilcrow">¶</a></p>
+<div id="scope">
+<section id="section-7.1.1">
+          <h4 id="name-scope">
+<a href="#section-7.1.1" class="section-number selfRef">7.1.1. </a><a href="#name-scope" class="section-name selfRef">Scope</a>
+          </h4>
+<p id="section-7.1.1-1">This section is intended for <strong>network providers</strong> who wish to adopt the accessory Network API to support cross-platform unwanted tracking detection for any accessory participating in a network.<a href="#section-7.1.1-1" class="pilcrow">¶</a></p>
+</section>
+</div>
+</section>
+</div>
+<div id="accessory-info-specifications">
+<section id="section-7.2">
+        <h3 id="name-accessory-info-specificatio">
+<a href="#section-7.2" class="section-number selfRef">7.2. </a><a href="#name-accessory-info-specificatio" class="section-name selfRef">Accessory Info Specifications</a>
+        </h3>
+<div id="accessoryinfo-service">
+<section id="section-7.2.1">
+          <h4 id="name-accessoryinfo-service">
+<a href="#section-7.2.1" class="section-number selfRef">7.2.1. </a><a href="#name-accessoryinfo-service" class="section-name selfRef">AccessoryInfo Service</a>
+          </h4>
+<p id="section-7.2.1-1">The HTTP endpoint used to query accessory information from a network provider is described in <a href="#_table-accessoryinfo-endpoint" class="auto internal xref">Table 24</a>.<a href="#section-7.2.1-1" class="pilcrow">¶</a></p>
+<span id="name-accessoryinfo-service-endpo"></span><div id="_table-accessoryinfo-endpoint">
+<table class="center" id="table-24">
+            <caption>
+<a href="#table-24" class="selfRef">Table 24</a>:
+<a href="#name-accessoryinfo-service-endpo" class="selfRef">AccessoryInfo Service Endpoint</a>
+            </caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">HTTP Method</th>
+                <th class="text-left" rowspan="1" colspan="1">URL</th>
+                <th class="text-left" rowspan="1" colspan="1">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">POST</td>
+                <td class="text-left" rowspan="1" colspan="1">https://{host}/{endpoint}</td>
+                <td class="text-left" rowspan="1" colspan="1">AccessoryInfo Query Service</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+</section>
+</div>
+<div id="accessoryinfo-url">
+<section id="section-7.2.2">
+          <h4 id="name-accessoryinfo-url">
+<a href="#section-7.2.2" class="section-number selfRef">7.2.2. </a><a href="#name-accessoryinfo-url" class="section-name selfRef">AccessoryInfo URL</a>
+          </h4>
+<p id="section-7.2.2-1">The AccessoryInfo endpoint URLs for each supported network provider are listed in <a href="#_table-accessoryinfo-urls" class="auto internal xref">Table 25</a>.<a href="#section-7.2.2-1" class="pilcrow">¶</a></p>
+<span id="name-accessoryinfo-endpoint-urls"></span><div id="_table-accessoryinfo-urls">
+<table class="center" id="table-25">
+            <caption>
+<a href="#table-25" class="selfRef">Table 25</a>:
+<a href="#name-accessoryinfo-endpoint-urls" class="selfRef">AccessoryInfo Endpoint URLs by Network Provider</a>
+            </caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">Network Provider</th>
+                <th class="text-left" rowspan="1" colspan="1">Endpoint URL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Apple Inc.</td>
+                <td class="text-left" rowspan="1" colspan="1">https://findmyut.apple.com/productinfo</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Google LLC</td>
+                <td class="text-left" rowspan="1" colspan="1">https://spot-pa.googleapis.com/lookup</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+</section>
+</div>
+<div id="accessoryinfo-request">
+<section id="section-7.2.3">
+          <h4 id="name-accessoryinfo-request">
+<a href="#section-7.2.3" class="section-number selfRef">7.2.3. </a><a href="#name-accessoryinfo-request" class="section-name selfRef">AccessoryInfo Request</a>
+          </h4>
+<p id="section-7.2.3-1"><strong>Request Headers:</strong><a href="#section-7.2.3-1" class="pilcrow">¶</a></p>
+<p id="section-7.2.3-2">The HTTP request headers required when making an AccessoryInfo request are described in <a href="#_table-accessoryinfo-request-headers" class="auto internal xref">Table 26</a>.<a href="#section-7.2.3-2" class="pilcrow">¶</a></p>
+<span id="name-accessoryinfo-request-heade"></span><div id="_table-accessoryinfo-request-headers">
+<table class="center" id="table-26">
+            <caption>
+<a href="#table-26" class="selfRef">Table 26</a>:
+<a href="#name-accessoryinfo-request-heade" class="selfRef">AccessoryInfo Request Headers</a>
+            </caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">Name</th>
+                <th class="text-left" rowspan="1" colspan="1">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Accept</td>
+                <td class="text-left" rowspan="1" colspan="1">Only “application/json” supported</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">Accept-Language</td>
+                <td class="text-left" rowspan="1" colspan="1">Language to be used for localization<br>Example: “en-US, en”</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+<p id="section-7.2.3-4"><strong>Request Parameters (JSON Fields):</strong><a href="#section-7.2.3-4" class="pilcrow">¶</a></p>
+<p id="section-7.2.3-5">The request parameters required when making an AccessoryInfo request are described in <a href="#_table-accessoryinfo-request-params" class="auto internal xref">Table 27</a>.<a href="#section-7.2.3-5" class="pilcrow">¶</a></p>
+<span id="name-accessoryinfo-request-param"></span><div id="_table-accessoryinfo-request-params">
+<table class="center" id="table-27">
+            <caption>
+<a href="#table-27" class="selfRef">Table 27</a>:
+<a href="#name-accessoryinfo-request-param" class="selfRef">AccessoryInfo Request Parameters</a>
+            </caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">Name</th>
+                <th class="text-left" rowspan="1" colspan="1">Data Type</th>
+                <th class="text-left" rowspan="1" colspan="1">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">▤ products</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Array (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">A JSON array containing one or more accessory product objects for which information is being requested.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ version</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">The network version defines which network standard the network provider is compatible with.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ networkId</td>
+                <td class="text-left" rowspan="1" colspan="1">Hex-String<br>(lowercase zero padded) (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">Specifies the Network ID associated with the network provider, present in the BT advertisement header.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ productData</td>
+                <td class="text-left" rowspan="1" colspan="1">Hex-String<br>(lowercase zero padded) (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">Unique identifier of the accessory make and model.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ ▦ firmwareData</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Object (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">A JSON object encapsulating firmware-related parameters associated with the accessory.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">    └ firmwareVersion</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">The current firmware version of the accessory.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">    └ category</td>
+                <td class="text-left" rowspan="1" colspan="1">int (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">The accessory category value that closest resembles the physical product.</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+<div id="sample-request">
+<section id="section-7.2.3.1">
+            <h5 id="name-sample-request">
+<a href="#section-7.2.3.1" class="section-number selfRef">7.2.3.1. </a><a href="#name-sample-request" class="section-name selfRef">Sample Request</a>
+            </h5>
+<p id="section-7.2.3.1-1">The following is an example of a well-formed AccessoryInfo request body, illustrating the expected JSON structure and representative field values.<a href="#section-7.2.3.1-1" class="pilcrow">¶</a></p>
+<div class="lang-json sourcecode" id="section-7.2.3.1-2">
+<pre>
+{
+  "products": [
+    {
+      "version": "1",
+      "networkId": "01",
+      "productData": "dd6fcc3d20cfbdce",
+      "firmwareData": {
+        "firmwareVersion": "84.8.112",
+        "category": 1
+      }
+    }
+  ]
+}
+</pre><a href="#section-7.2.3.1-2" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="accessoryinfo-response">
+<section id="section-7.2.4">
+          <h4 id="name-accessoryinfo-response">
+<a href="#section-7.2.4" class="section-number selfRef">7.2.4. </a><a href="#name-accessoryinfo-response" class="section-name selfRef">AccessoryInfo Response</a>
+          </h4>
+<p id="section-7.2.4-1">The JSON response fields returned by the network provider's service upon a successful AccessoryInfo request are described in <a href="#_table-accessoryinfo-response-fields" class="auto internal xref">Table 28</a>.<a href="#section-7.2.4-1" class="pilcrow">¶</a></p>
+<p id="section-7.2.4-2">The following additional requirements and conventions apply to the response:<a href="#section-7.2.4-2" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-7.2.4-3.1">
+              <p id="section-7.2.4-3.1.1">The network provider <span class="bcp14">MUST</span> provide “disable instructions”, in structured format, as defined in this specification.<a href="#section-7.2.4-3.1.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-7.2.4-3.2">
+              <p id="section-7.2.4-3.2.1">The network provider <span class="bcp14">MUST</span> provide the identifier retrieval instructions ("Learn More"), in structured format, as defined in this specification.<a href="#section-7.2.4-3.2.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-7.2.4-3.3">
+              <p id="section-7.2.4-3.3.1">Asset fields containing 2x, 3x are different size specifications of the same asset, meant to be shown on bigger screens.<a href="#section-7.2.4-3.3.1" class="pilcrow">¶</a></p>
+</li>
+            <li class="normal" id="section-7.2.4-3.4">
+              <p id="section-7.2.4-3.4.1">The localizations are based on the “Accept-Language” header from the HTTP request.<a href="#section-7.2.4-3.4.1" class="pilcrow">¶</a></p>
+</li>
+          </ul>
+</section>
+</div>
+<div id="response-format-json-fields">
+<section id="section-7.2.5">
+          <h4 id="name-response-format-json-fields">
+<a href="#section-7.2.5" class="section-number selfRef">7.2.5. </a><a href="#name-response-format-json-fields" class="section-name selfRef">Response Format (JSON Fields)</a>
+          </h4>
+<span id="name-accessoryinfo-response-fiel"></span><div id="_table-accessoryinfo-response-fields">
+<table class="center" id="table-28">
+            <caption>
+<a href="#table-28" class="selfRef">Table 28</a>:
+<a href="#name-accessoryinfo-response-fiel" class="selfRef">AccessoryInfo Response Fields</a>
+            </caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">Name</th>
+                <th class="text-left" rowspan="1" colspan="1">Data Type</th>
+                <th class="text-left" rowspan="1" colspan="1">Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">▤ products</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Array (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">A JSON array containing one or more accessory product objects for which information is being returned.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">▦ softwareInfo</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Object (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">Contains the fields specified below.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ networkId</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">The NetworkId hosting the service.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ productData</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">The productData for which the response is generated.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ surfaceUt</td>
+                <td class="text-left" rowspan="1" colspan="1">Boolean (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">Whether the UT alert should be shown.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ snLookupUrl</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">The URL where the "identifier" look-up HTML page is hosted. Refer to the DULT Internet Draft for "identifier" look-up request parameters.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">▦ capabilities</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Object (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">Enumerates the capabilities of the queried UT accessory.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ utAccel</td>
+                <td class="text-left" rowspan="1" colspan="1">Boolean (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">Motion detector UT.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ nfcLookup</td>
+                <td class="text-left" rowspan="1" colspan="1">Boolean (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">Identifier look-up by NFC.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ bleLookup</td>
+                <td class="text-left" rowspan="1" colspan="1">Boolean (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">Identifier look-up by BLE.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ playSound</td>
+                <td class="text-left" rowspan="1" colspan="1">Boolean (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">Play sound.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">▦ configuration</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Object (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">Contains the fields specified below.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ manufacturerName</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">Name of the accessory manufacturer.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ modelName</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">Model name of the accessory.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ category</td>
+                <td class="text-left" rowspan="1" colspan="1">int (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">Category to which the accessory belongs. The full list of supported categories is in the DULT IETF Draft.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ learnMoreItems</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Array of String (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">localized string values in structured format, in the sequence to be shown on screen. Contains the instructions to retrieve the identifier over BLE / NFC.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ <code>instructionsToDisableItems</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Array of String (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">localized string values in structured format, in the sequence to be shown on screen.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ <code>instructionsToDisableUrl</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">URL hosting the disable instructions page. Usually provided if the network provider cannot supply the instructions via <code>instructionsToDisableItems</code>.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ learnMorePageTitle</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">localized string value for the Learn More page title.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ disablePageTitle</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">localized string value for the Instructions To Disable page title.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ ▦ <code>learnMoreIconCoordinates</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Object (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">Contains the X,Y coordinates to place the "red" dot on the learn more icon. Applicable when the generic category image is shown.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ ▦ <code>instructionsToDisableIconCoordinates</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Object (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">Contains the X,Y coordinates to place the "red" dot on the instructionsToDisable icon. Applicable when the generic category image is shown.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">▦ assets</td>
+                <td class="text-left" rowspan="1" colspan="1">JSON Object (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">Refer to <a href="#asset-urls" class="auto internal xref">Section 7.2.5.1</a>.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ defaultHeroIcon</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Required)</td>
+                <td class="text-left" rowspan="1" colspan="1">This image <span class="bcp14">SHALL</span> be displayed on the Safety Alert and Detail screens.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ defaultHeroIcon2x</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">2x resolution variant of <code>defaultHeroIcon</code>.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ defaultHeroIcon3x</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">3x resolution variant of <code>defaultHeroIcon</code>.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ defaultListIcon</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">This image <span class="bcp14">SHALL</span> be displayed in the "Unknown Items Detected" list view.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ defaultListIcon2x</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">2x resolution variant of <code>defaultListIcon</code>.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ defaultListIcon3x</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">3x resolution variant of <code>defaultListIcon</code>.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ learnMoreIcon</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">This image <span class="bcp14">SHALL</span> be displayed in the "Learn More" section or page.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ learnMoreIcon2x</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">2x resolution variant of <code>learnMoreIcon</code>.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ learnMoreIcon3x</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">3x resolution variant of <code>learnMoreIcon</code>.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ <code>instructionsToDisableIcon</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">This image <span class="bcp14">SHALL</span> be displayed in the "Instructions To Disable" section or page.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ <code>instructionsToDisableIcon2x</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">2x resolution variant of <code>instructionsToDisableIcon</code>.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ <code>instructionsToDisableIcon3x</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">3x resolution variant of <code>instructionsToDisableIcon</code>.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ learnMoreVideoUrl</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">Link to the Learn More instructional video.</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">  └ <code>instructionsToDisableVideoUrl</code>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">String (Optional)</td>
+                <td class="text-left" rowspan="1" colspan="1">Link to the Disable instructional video.</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+<div id="asset-urls">
+<section id="section-7.2.5.1">
+            <h5 id="name-asset-urls">
+<a href="#section-7.2.5.1" class="section-number selfRef">7.2.5.1. </a><a href="#name-asset-urls" class="section-name selfRef">Asset URLs</a>
+            </h5>
+<p id="section-7.2.5.1-1">These are the requirements for asset URLs provided by the network provider:<a href="#section-7.2.5.1-1" class="pilcrow">¶</a></p>
+<ul class="normal">
+<li class="normal" id="section-7.2.5.1-2.1">
+                <p id="section-7.2.5.1-2.1.1">Accessory assets, when provided, <span class="bcp14">SHALL</span> be hosted by the network provider.<a href="#section-7.2.5.1-2.1.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-7.2.5.1-2.2">
+                <p id="section-7.2.5.1-2.2.1">Accessory assets, when provided, <span class="bcp14">MUST</span> be provided as hyperlinks pointing to publicly accessible web servers or CDN.<a href="#section-7.2.5.1-2.2.1" class="pilcrow">¶</a></p>
+</li>
+              <li class="normal" id="section-7.2.5.1-2.3">
+                <p id="section-7.2.5.1-2.3.1">Network providers <span class="bcp14">SHALL</span> provide accessory-category-specific image asset URLs for a product data.<a href="#section-7.2.5.1-2.3.1" class="pilcrow">¶</a></p>
+</li>
+            </ul>
+</section>
+</div>
+<div id="sample-json-response">
+<section id="section-7.2.5.2">
+            <h5 id="name-sample-json-response">
+<a href="#section-7.2.5.2" class="section-number selfRef">7.2.5.2. </a><a href="#name-sample-json-response" class="section-name selfRef">Sample JSON Response</a>
+            </h5>
+<p id="section-7.2.5.2-1">The following is an example of a well-formed AccessoryInfo JSON response, illustrating the complete response structure including software info, capabilities, configuration, and asset URLs returned by the network provider's service.<a href="#section-7.2.5.2-1" class="pilcrow">¶</a></p>
+<div class="breakable lang-json sourcecode" id="section-7.2.5.2-2">
+<pre>
+{
+  "products": [
+    {
+      "softwareInfo": {
+        "networkId": "01",
+        "productData": "dd6fcc3d20cfbdce",
+        "surfaceUt": true,
+        "snLookupUrl": "https://{network-provider-host}/{identifier-lookup-path}"
+      },
+      "capabilities": {
+        "utAccel": true,
+        "nfcLookup": false,
+        "bleLookup": true,
+        "playSound": true
+      },
+      "configuration": {
+        "manufacturerName": "Rolling Square",
+        "modelName": "AirCard",
+        "category": 1,
+        "learnMoreItems": [
+          "This item can be located by its owner using the Find My app. For more info, follow the instructions below.",
+          "Locate the button on the front of the AirCard.",
+          "Quickly press the button six times. A confirmation beep will sound and the light will flash three times.",
+          "Tap \"Continue On Website\" for more information including any lost mode message from the owner."
+        ],
+        "instructionsToDisableItems": [
+          "Locate the button on the front of the AirCard.",
+          "Quickly press the button five times. A confirmation chime will sound and the light will flash six times.",
+          "This will stop sharing the location of this item."
+        ],
+        "instructionsToDisableUrl": "https://&lt;disable_instructions_static_product_specific&gt;",
+        "learnMorePageTitle": "Learn More",
+        "disablePageTitle": "How to Disable",
+        "learnMoreIconCoordinates": {
+          "x": -1,
+          "y": -1
+        },
+        "instructionsToDisableIconCoordinates": {
+          "x": -1,
+          "y": -1
+        }
+      },
+      "assets": {
+        "defaultHeroIcon": "https://{network-provider-image-host}/hero.png",
+        "defaultHeroIcon2x": "https://{network-provider-image-host}/hero@2x.png",
+        "defaultHeroIcon3x": "https://{network-provider-image-host}/hero@3x.png",
+        "defaultListIcon": "https://{network-provider-image-host}/list.png",
+        "defaultListIcon2x": "https://{network-provider-image-host}/list@2x.png",
+        "defaultListIcon3x": "https://{network-provider-image-host}/list@3x.png",
+        "learnMoreIcon": "https://{network-provider-image-host}/learnmore.png",
+        "learnMoreIcon2x": "https://{network-provider-image-host}/learnmore@2x.png",
+        "learnMoreIcon3x": "https://{network-provider-image-host}/learnmore@3x.png",
+        "instructionsToDisableIcon": "https://{network-provider-image-host}/instructionstodisable.png",
+        "instructionsToDisableIcon2x": "https://{network-provider-image-host}/instructionstodisable@2x.png",
+        "instructionsToDisableIcon3x": "https://{network-provider-image-host}/instructionstodisable@3x.png",
+        "learnMoreVideoUrl": "",
+        "instructionsToDisableVideoUrl": ""
+      }
+    }
+  ]
+}
+</pre><a href="#section-7.2.5.2-2" class="pilcrow">¶</a>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="asset-specifications">
+<section id="section-7.2.6">
+          <h4 id="name-asset-specifications">
+<a href="#section-7.2.6" class="section-number selfRef">7.2.6. </a><a href="#name-asset-specifications" class="section-name selfRef">Asset Specifications</a>
+          </h4>
+<p id="section-7.2.6-1">The required asset names and their corresponding size specifications (in pixels) that <span class="bcp14">SHALL</span> be provided by the network provider for rendering accessory images and videos across all display resolutions are defined in <a href="#_table-accessoryinfo-asset-specs" class="auto internal xref">Table 29</a>.<a href="#section-7.2.6-1" class="pilcrow">¶</a></p>
+<span id="name-accessoryinfo-asset-specifi"></span><div id="_table-accessoryinfo-asset-specs">
+<table class="center" id="table-29">
+            <caption>
+<a href="#table-29" class="selfRef">Table 29</a>:
+<a href="#name-accessoryinfo-asset-specifi" class="selfRef">AccessoryInfo Asset Specifications</a>
+            </caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">Asset Name</th>
+                <th class="text-left" rowspan="1" colspan="1">Size Spec (px)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">defaultHeroIcon</td>
+                <td class="text-left" rowspan="1" colspan="1">160x160</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">defaultHeroIcon2x</td>
+                <td class="text-left" rowspan="1" colspan="1">320x320</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">defaultHeroIcon3x</td>
+                <td class="text-left" rowspan="1" colspan="1">480x480</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">defaultListIcon</td>
+                <td class="text-left" rowspan="1" colspan="1">30x30</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">defaultListIcon2x</td>
+                <td class="text-left" rowspan="1" colspan="1">60x60</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">defaultListIcon3x</td>
+                <td class="text-left" rowspan="1" colspan="1">90x90</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">learnMoreIcon</td>
+                <td class="text-left" rowspan="1" colspan="1">240x240</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">learnMoreIcon2x</td>
+                <td class="text-left" rowspan="1" colspan="1">480x480</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">learnMoreIcon3x</td>
+                <td class="text-left" rowspan="1" colspan="1">720x720</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">instructionsToDisableIcon</td>
+                <td class="text-left" rowspan="1" colspan="1">240x240</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">instructionsToDisableIcon2x</td>
+                <td class="text-left" rowspan="1" colspan="1">480x480</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">instructionsToDisableIcon3x</td>
+                <td class="text-left" rowspan="1" colspan="1">720x720</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">learnMoreVideoUrl</td>
+                <td class="text-left" rowspan="1" colspan="1">N/A</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">instructionsToDisableVideoUrl</td>
+                <td class="text-left" rowspan="1" colspan="1">N/A</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+</section>
+</div>
+</section>
+</div>
+<div id="identifier-look-up-webpage">
+<section id="section-7.3">
+        <h3 id="name-identifier-look-up-webpage">
+<a href="#section-7.3" class="section-number selfRef">7.3. </a><a href="#name-identifier-look-up-webpage" class="section-name selfRef">Identifier Look-up Webpage</a>
+        </h3>
+<p id="section-7.3-1">A network provider <span class="bcp14">SHALL</span> host a  webpage that displays ownership information, including an obfuscated contact identifier and the accessory's identifier in plaintext, along with any lost mode message set by the owner.<a href="#section-7.3-1" class="pilcrow">¶</a></p>
+<div id="url-format-and-query-params">
+<section id="section-7.3.1">
+          <h4 id="name-url-format-and-query-params">
+<a href="#section-7.3.1" class="section-number selfRef">7.3.1. </a><a href="#name-url-format-and-query-params" class="section-name selfRef">URL Format and Query Params</a>
+          </h4>
+<p id="section-7.3.1-1"><a href="https://{URL}?pid=%s&amp;b=%s&amp;fv=%s&amp;e=%s">https://{URL}?pid=%s&amp;b=%s&amp;fv=%s&amp;e=%s</a>
+            <em><strong>Note:</strong> The base URL is defined by each network provider. The query parameters listed in <a href="#_table-identifier-lookup-query-params" class="auto internal xref">Table 30</a> are standardized across all network providers.</em><a href="#section-7.3.1-1" class="pilcrow">¶</a></p>
+<span id="name-identifier-look-up-url-quer"></span><div id="_table-identifier-lookup-query-params">
+<table class="center" id="table-30">
+            <caption>
+<a href="#table-30" class="selfRef">Table 30</a>:
+<a href="#name-identifier-look-up-url-quer" class="selfRef">Identifier Look-up URL Query Parameters</a>
+            </caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">Key</th>
+                <th class="text-left" rowspan="1" colspan="1">URL Param Type</th>
+                <th class="text-left" rowspan="1" colspan="1">Notes</th>
+                <th class="text-left" rowspan="1" colspan="1">Reference</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">b</td>
+                <td class="text-left" rowspan="1" colspan="1">Hex String</td>
+                <td class="text-left" rowspan="1" colspan="1">Battery level <em>(Optional)</em>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span><a href="#battery-level" class="internal xref">Battery level</a> (<a href="#battery-level" class="auto internal xref">Section 3.12.1.10</a>)</span> — Get_Battery_Level</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">bt</td>
+                <td class="text-left" rowspan="1" colspan="1">Hex String</td>
+                <td class="text-left" rowspan="1" colspan="1">BT MAC address <em>(Optional)</em>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span><a href="#mac-address" class="internal xref">MAC address</a> (<a href="#mac-address" class="auto internal xref">Section 3.5</a>)</span>
+</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">fv</td>
+                <td class="text-left" rowspan="1" colspan="1">Hex String</td>
+                <td class="text-left" rowspan="1" colspan="1">FW version <em>(Optional)</em>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span><a href="#firmware-version" class="internal xref">Firmware version</a> (<a href="#firmware-version" class="auto internal xref">Section 3.12.1.8</a>)</span> — Get_Firmware_Version</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">e</td>
+                <td class="text-left" rowspan="1" colspan="1">Hex String</td>
+                <td class="text-left" rowspan="1" colspan="1">Encrypted identifier payload <em>(Required)</em>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span><a href="#identifier-payload" class="internal xref">Identifier Payload</a> (<a href="#identifier-payload" class="auto internal xref">Section 3.13.4.2</a>)</span> — Get_Identifier</td>
+              </tr>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">pid</td>
+                <td class="text-left" rowspan="1" colspan="1">Hex String</td>
+                <td class="text-left" rowspan="1" colspan="1">Accessory product data <em>(Required)</em>
+</td>
+                <td class="text-left" rowspan="1" colspan="1">
+                  <span><a href="#product-data" class="internal xref">Product data</a> (<a href="#product-data" class="auto internal xref">Section 3.12.1.1</a>)</span> — Get_Product_Data</td>
+              </tr>
+            </tbody>
+          </table>
+</div>
+</section>
+</div>
+</section>
+</div>
 </section>
 </div>
 <div id="security-considerations">
