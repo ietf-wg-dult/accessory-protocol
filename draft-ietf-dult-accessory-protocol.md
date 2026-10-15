@@ -639,6 +639,8 @@ The accessory MUST include a way to uniquely identify it - either via a serial n
 
 If a serial number is available, it SHALL be printed and be easily accessible on the accessory. The serial number MUST be unique for each product ID.
 
+Serial numbers SHALL use a font that makes it easy to distinguish between numerals and letters that are commonly confused. In Roman alphabets these include the numeral "0" and the capital letter "O", the numeral "6" and the capital letter "G", the numeral "1" and the capital letter "I" or lowercase letter "l", the numeral "5" and the capital letter "S", and the numeral "2" and the capital letter "Z".
+
 ###  Identifier retrieval capability {#identifier-retrieval}
 The identifier payload SHALL be readable either through NFC tap (see [Identifier over NFC](#identifier-over-nfc)) or Bluetooth LE (see [Identifier Retrieval over Bluetooth LE](#identifier-retrieval-over-bluetooth-le) ).
 
